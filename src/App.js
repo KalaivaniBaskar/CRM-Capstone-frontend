@@ -101,8 +101,9 @@ function App() {
           <Route path= '/od-cancelreq' element={ <CancelOdWrapper />}></Route>
           <Route path= '/od-monthly' element={ <MonthlyOdWrapper />}></Route>
           <Route path= '/sales-chart' element={ <SalesChartWrapper />}></Route> 
-          
         </Route> 
+
+        {/* for marketing */}
 
          <Route path="*" element={<h3>404 : Page not found</h3>}></Route>
          </Route>
