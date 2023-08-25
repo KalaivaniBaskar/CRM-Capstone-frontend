@@ -20,7 +20,7 @@ const SalesChart = () => {
         try{
             const token = localStorage.getItem('tokenAuth')
             const email = localStorage.getItem('email')
-                console.log(token, email)
+                // console.log(token, email)
             const config = { headers : {"x-auth-token" : token}} 
             const d = new Date();
             let year = d.getFullYear()

@@ -31,7 +31,7 @@ const OrderHistory = () => {
             //console.log(token)
             const config = { headers : {"x-auth-token" : token}}
             const response = await axios.post(`${BASE_URL}/orders/cancel-order`, { orderID : id}, config)
-            console.log(response) 
+            //console.log(response) 
             if(response.status === 200){
                 handleClose()
                 window.alert("Cancel request placed")
@@ -56,7 +56,6 @@ const OrderHistory = () => {
     const handleService = async(e, od) => {
         e.preventDefault();
         setOpen(true)
-        console.log(od)
         const d = new Date();
         let year = d.getFullYear()
         let month = d.getMonth()+1
@@ -80,7 +79,7 @@ const OrderHistory = () => {
               //console.log(token)
               const config = { headers : {"x-auth-token" : token}}
               const response = await axios.post(`${BASE_URL}/request/create-request`, request, config)
-              console.log(response) 
+            //   console.log(response) 
               if(response.status === 200){
                   handleClose()
                   window.alert("Service Request created")
@@ -99,10 +98,10 @@ const OrderHistory = () => {
         try{
         const token = localStorage.getItem('tokenAuth')
         const email = localStorage.getItem('email')
-            console.log(token, email)
+           // console.log(token, email)
         const config = { headers : {"x-auth-token" : token}}
         const response = await axios.post(`${BASE_URL}/orders/get-orders`, {cust_email : email}, config) 
-        console.log(response) 
+        // console.log(response) 
         if( response.status === 200) {
             setOrders( response.data.ordersList)
         }

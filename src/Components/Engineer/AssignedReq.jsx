@@ -27,6 +27,8 @@ const AssignedReq = () => {
                 console.log("add summary order")
                   const token = localStorage.getItem('tokenAuth')
                   const email = localStorage.getItem('email')
+                  const role = localStorage.getItem('role')
+
                   //console.log(token)
                   const config = { headers : {"x-auth-token" : token}}
 
@@ -36,7 +38,7 @@ const AssignedReq = () => {
                   if(response.status === 200){
                       handleClose()
                       window.alert(" request closed")
-                      navigate('/engg-dashboard')
+                      navigate(`/${role}-dashboard`)
                   }
                   else {
                       
@@ -53,10 +55,8 @@ const AssignedReq = () => {
     const addSummary = async(e,req) => {
         e.preventDefault();
         setOpen(true)
-        console.log("add summary", req)
         const temp = [...req.request_summary] 
         temp.push(summary)
-        console.log(temp)
         const ok = window.confirm("Do you want to add summary") 
         if(ok) {
             try{
@@ -70,7 +70,7 @@ const AssignedReq = () => {
                   const response = await axios.post(`${BASE_URL}/request/update-summary`, { requestID : req.requestID, 
                     request_summary : temp, 
                    request_engg: email}, config)
-                  console.log(response) 
+                  //console.log(response) 
                   if(response.status === 200){
                       handleClose() 
                       setRequest("")
@@ -98,7 +98,7 @@ const AssignedReq = () => {
               //  console.log(token, email)
             const config = { headers : {"x-auth-token" : token}}
             const response = await axios.post(`${BASE_URL}/request/get-requests`, {request_status : REQUEST_STATUS.Assigned, request_engg : email}, config) 
-            console.log(response) 
+            //console.log(response) 
             if( response.status === 200) {
                 setA_Requests( response.data.requestsList)
             }

@@ -26,7 +26,6 @@ const BuyProducts = () => {
   }
    
   const addItemHandler = (item) => {
-    console.log("add item ", item) 
     const itemToAdd = {
         product_ID : item.product_ID,
         product_name : item.product_name,
@@ -40,7 +39,6 @@ const BuyProducts = () => {
   }
 
   const removeItemHandler = (item) => {
-    console.log(" rem item", item)
     const itemToAdd = {
         product_ID : item.product_ID,
         product_name : item.product_name,

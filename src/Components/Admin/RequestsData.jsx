@@ -26,7 +26,7 @@ const RequestsData = () => {
             console.log("get y and m req")
             const token = localStorage.getItem('tokenAuth')
             const email = localStorage.getItem('email')
-                console.log(token, email)
+              //  console.log(token, email)
             const config = { headers : {"x-auth-token" : token}} 
             console.log("sending req")    
             const response = await axios.post(`${BASE_URL}/request/get-all-requests`, 

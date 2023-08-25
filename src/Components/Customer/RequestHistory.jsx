@@ -17,10 +17,10 @@ const RequestHistory = () => {
         try{
         const token = localStorage.getItem('tokenAuth')
         const email = localStorage.getItem('email')
-            console.log(token, email)
+            //console.log(token, email)
         const config = { headers : {"x-auth-token" : token}}
         const response = await axios.post(`${BASE_URL}/request/get-requests`, {cust_email : email}, config) 
-        console.log(response) 
+        // console.log(response) 
         if( response.status === 200) {
             setRequests( response.data.requestsList)
         }
@@ -38,7 +38,6 @@ const RequestHistory = () => {
 
     useEffect( () => {
         getRequests();
-        console.log(requests)
       }, [])
 
   return (

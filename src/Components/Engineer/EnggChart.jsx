@@ -25,7 +25,6 @@ const EnggChart = () => {
             if( response.status === 200) {
               const t = [...response.data.requestsList]
                  setRequests( [...response.data.requestsList])
-                 console.log(requests, t)
                 let  tempC = t.filter( el => el.request_status === REQUEST_STATUS.Resolved)
                 let  tempA = t.filter( el => el.request_status === REQUEST_STATUS.Assigned)
                 const num = [tempA.length, tempC.length];
@@ -66,7 +65,6 @@ const EnggChart = () => {
           }
 
     useEffect( () => {
-      console.log(typeof c_requests)
         getEnggReq()
       }, [])
 

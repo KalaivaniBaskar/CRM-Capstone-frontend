@@ -56,7 +56,7 @@ const CancelOdReq = () => {
       try{
         const token = localStorage.getItem('tokenAuth')
         const email = localStorage.getItem('email')
-            console.log(token, email)
+            // console.log(token, email)
         const config = { headers : {"x-auth-token" : token}}
         const response = await axios.post(`${BASE_URL}/orders/get-orders`, 
         {order_status : ORDER_STATUS.CancelReq}, config) 

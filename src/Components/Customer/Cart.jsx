@@ -39,12 +39,10 @@ const Cart = () => {
     dispatch(removeItem(item))
     } 
     const handleIncQty = (item)  => {   
-        console.log("inc qty", item)    
         if(item.qty < 4 && item.product_stock >= 5)
           dispatch(increaseQty(item))
     } 
     const handleDecQty = (item)  => {
-        console.log("dec qty", item)  
         if(item.qty > 1)
         dispatch(decreaseQty(item))
     } 
@@ -52,14 +50,11 @@ const Cart = () => {
     const handleCreateOrder = async (e) => {
         e.preventDefault(); 
         setPlace(true)
-        console.log("order")
         handleDialogClose(); 
         setOpen(true); 
         const d = new Date();
-        console.log(d.getDate(), d.getMonth() , d.getFullYear());
         const del = new Date();
         del.setDate(del.getDate() + 10);
-        console.log(del)
         let year = d.getFullYear()
         let month = d.getMonth()+1
         let dt = d.getDate()
@@ -72,7 +67,6 @@ const Cart = () => {
         const date2 = String(year) + 
                         ( month<10 ? '0'+String(month) : String(month)) + 
                         ( dt<10 ? '0'+String(dt) : String(dt)) 
-        console.log(date1, date2)
         
         const order = {
             order_items : cart_items,
@@ -96,7 +90,7 @@ const Cart = () => {
             //console.log(token)
             const config = { headers : {"x-auth-token" : token}}
             const response = await axios.post(`${BASE_URL}/orders/create-order`, order, config)
-            console.log(response)
+            //console.log(response)
             if(response.status === 200) { 
                 window.alert('You order had been placed')
                 dispatch(clearCart());
@@ -116,8 +110,7 @@ const Cart = () => {
     const handleForm = () => {
         handleDialogClose()
         setForm(true);
-        console.log("form") 
-    }
+/    }
    return (
     <>
     <LoadModal open={open} handleClose={handleClose}/>

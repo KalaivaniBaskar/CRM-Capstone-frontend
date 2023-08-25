@@ -22,7 +22,7 @@ const ClosedReq = () => {
             const config = { headers : {"x-auth-token" : token}}
             const response = await axios.post(`${BASE_URL}/request/get-requests`, 
             {request_engg : email}, config) 
-            console.log(response) 
+            //console.log(response) 
             if( response.status === 200) {
                  setRequests( response.data.requestsList)
             }

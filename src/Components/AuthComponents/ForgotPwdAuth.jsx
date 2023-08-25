@@ -8,13 +8,13 @@ const ForgotPwdAuth = () => {
     const navigate = useNavigate();
     
     const verifyUser = async(id,token) => {
-        console.log(id,token);
+        //console.log(id,token);
         console.log("Verifying authorization");
         try{
          const response = await axios.post(`${BASE_URL}/user/forgotpwd/authorize/${id}/${token}`);
-         console.log(response);
+         //console.log(response);
          if(response.status === 200){
-           console.log(response, response.data);
+          // console.log(response, response.data);
             let resetID = response.data.id;
             let token = response.data.token;
             navigate(`/reset-pwd/${resetID}/${token}`,{ replace: true });

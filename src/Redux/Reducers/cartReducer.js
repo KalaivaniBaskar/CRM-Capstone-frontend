@@ -11,9 +11,7 @@ const cartSlice = createSlice({
    },
     reducers : {
         addItem : (state, action) => { 
-            console.log("in add item redux") 
             const index = state.cart_data.cart_items.findIndex( (item) => item.product_ID === action.payload.product_ID)
-            console.log("index" , index)
             
             if(index === -1) {
                 const itemToAdd = {...action.payload}
@@ -48,10 +46,8 @@ const cartSlice = createSlice({
         },
 
         increaseQty : (state, action) => { 
-            console.log("in inc item redux") 
 
             const index = state.cart_data.cart_items.findIndex( (item) => item.product_ID === action.payload.product_ID)
-            console.log("index" , index)
             
             if(index !== -1 && action.payload.qty < 4) {
                 const itemToPlus = {...action.payload}
@@ -74,10 +70,8 @@ const cartSlice = createSlice({
 
         }, 
         decreaseQty : (state, action) => { 
-            console.log("in dec item redux") 
 
             const index = state.cart_data.cart_items.findIndex( (item) => item.product_ID === action.payload.product_ID)
-            console.log("index" , index)
             
             if(index !== -1 && action.payload.qty > 1) {
                 const itemToMinus = {...action.payload}
@@ -100,7 +94,6 @@ const cartSlice = createSlice({
             console.log("item not in cart")
         }, 
         clearCart : (state, action) => {  
-               console.log('clear cart')
                 state.cart_data = {
                     cart_items : [],
                     cart_Amount : 0,

@@ -44,7 +44,6 @@ const Signup = () => {
         },
         validationSchema: registerSchema,
         onSubmit: (newUser) => {
-            console.log(newUser);
             handleAddUser(newUser)
         }
     
@@ -60,7 +59,7 @@ const Signup = () => {
     } 
     try{
     const response = await axios.post(`${BASE_URL}/user/register`, {new_User : user})
-    console.log(response); 
+    //console.log(response); 
     if(response.status === 201 || response.status === 200 ) {
         setResp("Account created successfully! Activation link sent to your email")
     }

@@ -38,7 +38,7 @@ const ProfilePic = () => {
       } 
 
       const handleUpload = async(event) => {
-        console.log(fileSizeExceeded)
+        // console.log(fileSizeExceeded)
         if(!fileSizeExceeded){
             const imgForm = new FormData();
             imgForm.append("file", image)
@@ -47,8 +47,8 @@ const ProfilePic = () => {
             imgForm.append("folder","users");
         
             const response = await axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, imgForm)
-            console.log(response);
-            console.log(response.data.public_id);
+            // console.log(response);
+            // console.log(response.data.public_id);
             setImage({url: response.data.secure_url, public_id: response.data.public_id}) 
 
             const db_response = await updateUserDB({email: user.email,
@@ -84,7 +84,7 @@ const ProfilePic = () => {
             const token = localStorage.getItem('tokenAuth')
             const config = { headers : {"x-auth-token" : token}}
             const response = await axios.delete(`${BASE_URL}/user/delete-pic?public_id=${public_id}`, config)
-            console.log(response)
+            //console.log(response)
             }
             catch(error){ 
                 console.log("cloud not updated")

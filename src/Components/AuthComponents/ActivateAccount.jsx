@@ -39,7 +39,7 @@ const ActivateAccount = () => {
 
     useEffect( () => { 
         const token  = searchparam.get("activateToken") 
-        console.log("calling fn", token);
+        //console.log("calling fn", token);
         if(id && token !== null) {
             activateUser(id,token);
         }

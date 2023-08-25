@@ -21,7 +21,6 @@ const userSlice = createSlice({
                                  role : "", pic_URL : "", pic_URL_ID : "",}
         },
         changeUserPic: (state, action) => {
-            console.log(action.payload)
             state.user_data  = ({...state.user_data, pic_URL : action.payload.url,
                 pic_URL_ID : action.payload.public_id })
         }
