@@ -21,7 +21,7 @@ const Login = () => {
          e.preventDefault();
          try{
           const response = await axios.post(`${BASE_URL}/user/login`, user)
-          c//onsole.log(response);
+          //console.log(response);
           if(response?.status === 200){
             setUser({email:"", password:""})
             const userdata = response?.data?.userdata;
