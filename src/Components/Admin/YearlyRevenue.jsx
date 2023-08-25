@@ -1,0 +1,267 @@
+import BarChart from '../Charts/BarChart';
+import React, { useState, useEffect } from 'react'
+import {  Grid, Box, Typography, Stack, Paper } from '@mui/material';
+import axios from 'axios';
+import { BASE_URL } from '../../Data/APIdata';
+import { ORDER_STATUS } from '../../Data/statusCode';
+import { useNavigate } from 'react-router-dom';
+import LineChart from '../Charts/LineChart';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+
+const YearlyRevenue = () => { 
+    const [requests, setRequests] = useState([]);
+    const [requestsY, setRequestsY] = useState([]); 
+    const [monthlyRev, setmonthlyRev] = useState([]);
+    const [yearlyRev, setyearlyRev] = useState([]); 
+    const [close, setClose] = useState(true)
+    const ORDER_STATUS_VALUES = Object.values(ORDER_STATUS)
+    const navigate = useNavigate()
+    // for chart
+    const [data, setData] = useState({})  
+    const [dataY, setDataY] = useState({})  
+    // for line chart
+    const [lineData, setlineData] = useState({})  
+    const [lineDataY, setlineDataY] = useState({})  
+    const options = {
+    } 
+
+       const getSalesReq = async() => {
+        try{
+            const token = localStorage.getItem('tokenAuth')
+            const email = localStorage.getItem('email')
+                console.log(token, email)
+            const config = { headers : {"x-auth-token" : token}} 
+            const d = new Date();
+            let year = d.getFullYear()
+            let month = d.getMonth()+1
+            const pattern  = "^" +  String(year) + 
+                            ( month<10 ? '0'+String(month) : String(month)) + ".*"
+    
+            const response = await axios.post(`${BASE_URL}/orders/monthly-orders`, 
+            {email : email}, config) 
+            console.log(response) 
+            if( response.status === 200) {
+                
+              const t = [...response.data.ordersMonthly]
+              const temp = [...response.data.ordersYearly]
+                 setRequests( [...response.data.ordersMonthly])
+                 setRequestsY( [...response.data.ordersYearly])
+
+                const shipped = t.filter( od => od.order_status === ORDER_STATUS.Shipped)
+                const placed = t.filter( od => od.order_status === ORDER_STATUS.Placed)
+                const deliv = t.filter( od => od.order_status === ORDER_STATUS.Delivered)
+                const canreq = t.filter( od => od.order_status === ORDER_STATUS.CancelReq)
+                const cancel = t.filter( od => od.order_status === ORDER_STATUS.Cancelled)
+                const num = [ placed.length , shipped.length, deliv.length, canreq.length, cancel.length ] 
+               
+                const shippedY = temp.filter( od => od.order_status === ORDER_STATUS.Shipped)
+                const placedY = temp.filter( od => od.order_status === ORDER_STATUS.Placed)
+                const delivY = temp.filter( od => od.order_status === ORDER_STATUS.Delivered)
+                const canreqY = temp.filter( od => od.order_status === ORDER_STATUS.CancelReq)
+                const cancelY = temp.filter( od => od.order_status === ORDER_STATUS.Cancelled)
+                const numY = [ placedY.length , shippedY.length, delivY.length, canreqY.length, cancelY.length ] 
+                console.log(numY, num)
+
+                const monthlyRev = deliv.map ( (od) => od.order_amount)
+                const yearlyRev = delivY.map ( (od) => od.order_amount)
+                const monthlyRevID = deliv.map ( (od) => od.orderID)
+                const yearlyRevID = delivY.map ( (od) => od.orderID)
+                console.log(monthlyRev, yearlyRev, monthlyRevID, yearlyRevID)
+                setmonthlyRev(monthlyRev)
+                setyearlyRev(yearlyRev)
+                 setData({
+                  labels: ORDER_STATUS_VALUES,
+                  datasets : [{
+                    label: "Monthly Order Status",
+                    data: num,
+                    backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 205, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                      'rgb(255, 99, 132)',
+                      'rgb(255, 159, 64)',
+                      'rgb(255, 205, 86)',
+                      'rgb(75, 192, 192)',
+                      'rgb(54, 162, 235)',
+                      'rgb(153, 102, 255)',
+                      'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+                });
+
+                 setDataY({
+                  labels: ORDER_STATUS_VALUES,
+                  datasets : [{
+                    label: "Yearly Order Status",
+                    data: numY,
+                    backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 205, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                      'rgb(255, 99, 132)',
+                      'rgb(255, 159, 64)',
+                      'rgb(255, 205, 86)',
+                      'rgb(75, 192, 192)',
+                      'rgb(54, 162, 235)',
+                      'rgb(153, 102, 255)',
+                      'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+                }) 
+                 setlineData({
+                  labels: monthlyRevID,
+                  datasets : [{
+                    label: "Monthly Order Status",
+                    data: monthlyRev,
+                    backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 205, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                      'rgb(255, 99, 132)',
+                      'rgb(255, 159, 64)',
+                      'rgb(255, 205, 86)',
+                      'rgb(75, 192, 192)',
+                      'rgb(54, 162, 235)',
+                      'rgb(153, 102, 255)',
+                      'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+                });
+
+                 setlineDataY({
+                  labels: yearlyRevID,
+                  datasets : [{
+                    label: "Yearly Order Status",
+                    data: yearlyRev,
+                    backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 205, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                      'rgb(255, 99, 132)',
+                      'rgb(255, 159, 64)',
+                      'rgb(255, 205, 86)',
+                      'rgb(75, 192, 192)',
+                      'rgb(54, 162, 235)',
+                      'rgb(153, 102, 255)',
+                      'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+                }) 
+
+
+                setClose(false)
+            }
+            else if( response.status === 403) {
+                navigate('/')
+            }
+            }
+            catch(error){
+              console.log(error);
+          }
+          }
+
+    useEffect( () => {
+        getSalesReq()
+      }, [])
+
+  return (
+    <Grid container  p={1} alignItems={'space-evenly'}>
+         { !close &&
+             <div className='.grid-container-eq'>
+
+            <Stack gap={2} >
+                <Box borderRadius={'20px'}  >
+                    <Box m={1} className='gradient-b' component={Paper} p={'2rem'}>
+                        <Typography variant='h5' color={'white'}>
+                        <MonetizationOnIcon fontSize='large' sx={{m:1}}></MonetizationOnIcon>
+                         Annual Revenue
+                        </Typography>
+                        <Typography variant='h4' color={'white'}>
+                           Rs.{yearlyRev.reduce((a,b) => a+b, 0)}</Typography>
+                    </Box>
+                </Box>
+                <Box borderRadius={'20px'}  >
+                <Box m={1} className='gradient-b' component={Paper} p={'2rem'}>
+                     
+                       
+                        <Typography variant='h5' color={'white'}>
+                        <MonetizationOnIcon fontSize='large' sx={{m:1}}>
+                        </MonetizationOnIcon>
+                            Monthly Revenue:
+                        </Typography>
+                        <Typography variant='h5' color={'white'}>
+                            Rs.{monthlyRev.reduce((a,b) => a+b, 0)}
+                            </Typography>
+                    </Box>
+                </Box>
+            </Stack>
+        </div>
+            }
+      <div className='.grid-container-eq'>
+
+          { !close &&
+          <Box minHeight={'500px'} > 
+             <Typography> Monthly Revenue</Typography>
+            <LineChart data={lineData} options={options} />
+            </Box>
+            }
+    
+     
+          { !close &&
+          <Box minHeight={'500px'} > 
+             <Typography> Yearly Revenue</Typography>
+            <LineChart data={lineDataY} options={options} />
+            </Box>
+            }
+    </div>
+    <div className='.grid-container-eq'>
+
+          { !close &&
+          <Box minHeight={'500px'} > 
+             <Typography> Current Month Sales</Typography>
+            <BarChart data={data} options={options} />
+            </Box>
+            }
+    
+      
+          { !close &&
+          <Box minHeight={'500px'} > 
+             <Typography> Current Year Sales</Typography>
+            <BarChart data={dataY} options={options} />
+            </Box>
+            }
+            </div>
+   
+    </Grid>
+  )
+}
+
+export default YearlyRevenue
