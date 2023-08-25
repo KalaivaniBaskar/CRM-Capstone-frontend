@@ -110,7 +110,7 @@ const Cart = () => {
     const handleForm = () => {
         handleDialogClose()
         setForm(true);
-/    }
+    }
    return (
     <>
     <LoadModal open={open} handleClose={handleClose}/>
