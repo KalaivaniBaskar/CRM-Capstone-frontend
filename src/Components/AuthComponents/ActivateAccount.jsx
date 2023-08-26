@@ -4,17 +4,18 @@ import { useParams, useSearchParams, useNavigate} from 'react-router-dom'
 import { Box, Stack } from '@mui/material';
 import AppBarComponent from '../AppBarComponent/AppBarComponent';
 import axios from 'axios';
+import { BASE_URL } from '../../Data/APIdata';
 
 const ActivateAccount = () => {
     const {id} = useParams();
     const [searchparam] = useSearchParams();
     const [resp, setResp] = useState("")
     const navigate = useNavigate();
-
+     
     const activateUser = async(id,token) => {
         console.log("Verifying activation");
         try{
-         const response = await axios.post(`http://localhost:3500/user/activate/${id}/${token}`)
+         const response = await axios.post(`${BASE_URL}/user/activate/${id}/${token}`)
          console.log(response);
             if(response.status === 200){
                 setResp("Account Activated. Login to Continue")

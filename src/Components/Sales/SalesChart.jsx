@@ -84,7 +84,7 @@ const SalesChart = () => {
 
   return (
     <Grid container justifyContent={'center'} alignItems={'center'} p={1}>
-    <Grid item xs={12} sm={10} md={8} lg={6} xl={6} key={"sales-chart"} my={2}
+    <Grid item xs={12} sm={10} md={8} lg={6} xl={6} key={"sales-chart1"} my={2}
       >
           { !close &&
           <Box minHeight={'500px'} > 

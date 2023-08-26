@@ -7,6 +7,8 @@ import { ORDER_STATUS } from '../../Data/statusCode';
 import { useNavigate } from 'react-router-dom';
 import LineChart from '../Charts/LineChart';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import PieChart from '../Charts/PieChart';
+import DoughnutChart from '../Charts/DoughnutChart';
 
 const YearlyRevenue = () => { 
     const [requests, setRequests] = useState([]);
@@ -72,7 +74,7 @@ const YearlyRevenue = () => {
                  setData({
                   labels: ORDER_STATUS_VALUES,
                   datasets : [{
-                    label: "Monthly Order Status",
+                    label: "Monthly Orders",
                     data: num,
                     backgroundColor: [
                       'rgba(255, 99, 132, 0.2)',
@@ -99,7 +101,7 @@ const YearlyRevenue = () => {
                  setDataY({
                   labels: ORDER_STATUS_VALUES,
                   datasets : [{
-                    label: "Yearly Order Status",
+                    label: "Yearly Orders",
                     data: numY,
                     backgroundColor: [
                       'rgba(255, 99, 132, 0.2)',
@@ -125,7 +127,7 @@ const YearlyRevenue = () => {
                  setlineData({
                   labels: monthlyRevID,
                   datasets : [{
-                    label: "Monthly Order Status",
+                    label: "Monthly Orders",
                     data: monthlyRev,
                     backgroundColor: [
                       'rgba(255, 99, 132, 0.2)',
@@ -152,7 +154,7 @@ const YearlyRevenue = () => {
                  setlineDataY({
                   labels: yearlyRevID,
                   datasets : [{
-                    label: "Yearly Order Status",
+                    label: "Yearly Orders",
                     data: yearlyRev,
                     backgroundColor: [
                       'rgba(255, 99, 132, 0.2)',
@@ -246,16 +248,16 @@ const YearlyRevenue = () => {
 
           { !close &&
           <Box minHeight={'500px'} > 
-             <Typography> Current Month Sales</Typography>
-            <BarChart data={data} options={options} />
+             <Typography> Current Month Orders</Typography>
+            <PieChart data={data} options={options} />
             </Box>
             }
     
       
           { !close &&
           <Box minHeight={'500px'} > 
-             <Typography> Current Year Sales</Typography>
-            <BarChart data={dataY} options={options} />
+             <Typography> Current Year Orders</Typography>
+            <DoughnutChart data={dataY} options={options} />
             </Box>
             }
             </div>

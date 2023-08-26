@@ -223,7 +223,7 @@ const SidePanelFixed = () => {
             </ListItemButton>
           </ListItem>
           <ListItem key={'Sales'} disablePadding>
-            <ListItemButton onClick={() => navigate('/sales-chart')}>
+            <ListItemButton onClick={() => navigate('/revenue-chart')}>
               <ListItemIcon>
                 <MonetizationOnIcon />                
               </ListItemIcon>

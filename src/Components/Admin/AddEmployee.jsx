@@ -6,9 +6,9 @@ import { useFormik } from 'formik'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
 import { USER_ROLES } from '../../Data/Roles.js';
-import AppBarComponent from '../AppBarComponent/AppBarComponent.jsx';
 import { registerSchema } from '../AuthComponents/Signup.jsx';
 import { BASE_URL } from '../../Data/APIdata.js';
+import LoadModal from '../Customer/LoadModal.jsx';
 
 const AddEmployee = () => {
     
@@ -16,6 +16,9 @@ const AddEmployee = () => {
     const [emp_role, setEmp_Role] = useState("");
     const USER_ROLES_VALUES = Object.values(USER_ROLES);
     const rolesArray = USER_ROLES_VALUES.filter( el => el !== USER_ROLES.Customer)
+    const [open, setOpen] = useState(false)
+
+    const handleClose = () => { setOpen(false)}
     // form handler - Formik
     const {values, 
         handleChange, 
@@ -39,10 +42,30 @@ const AddEmployee = () => {
     
         const handleAddEmployee = async(newEmployee) => {
               console.log(newEmployee) 
+              const user = {
+                username : newEmployee.username,
+                email : newEmployee.email,
+                phone: newEmployee.phone,
+                password: newEmployee.password,
+                role : emp_role
+            }  
               const token = localStorage.getItem('tokenAuth')
               const config = { headers : {"x-auth-token" : token}}
-              const response = await axios.post(`${BASE_URL}/url/clickcount`,newEmployee, config) 
-              console.log(response)
+            //  const response = await axios.post(`${BASE_URL}/admin/add-employee`,newEmployee, config) 
+           try{ 
+              setOpen(true)
+              const response = await axios.post(`${BASE_URL}/admin/add-employee`,{ new_User : user }, config) 
+              console.log(response) 
+              if(response.status === 201 || response.status ===  200) {
+                window.alert("Employee created")
+                handleClose()
+              }
+            }
+            catch(error){
+                handleClose()
+                console.log(error);
+            }
+            
         }
 
         useEffect( () => {
@@ -60,6 +83,7 @@ const AddEmployee = () => {
 
 return (
     <> 
+    <LoadModal open={open} handleClose={handleClose} />
     <Typography variant='h5' mt={'2rem'}
     sx={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.25), -2px -2px 4px rgba(0, 0, 0, 0.25)' }}
     >New Employee Form:</Typography>

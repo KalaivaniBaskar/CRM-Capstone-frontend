@@ -124,7 +124,7 @@ const RequestsData = () => {
           numM.map( (req, i) => {
             return  <Box borderRadius={'20px'}  >
             <Box m={1} className='gradient-b' component={Paper} p={'2rem'}>
-                <Typography variant='h5' color={'white'}>
+                <Typography variant='body1' color={'white'}>
                     {REQUEST_STATUS_VALUES[i]}
                 </Typography>
                 <Typography variant='h4' color={'white'}>
@@ -142,9 +142,9 @@ const RequestsData = () => {
       {
           numY.length > 0 && 
           numY.map( (req, i) => {
-            return  <Box borderRadius={'20px'}  >
+            return  <Box borderRadius={'20px'} key={`reqchart-${i}` }>
             <Box m={1} className='gradient-b' component={Paper} p={'2rem'}>
-                <Typography variant='h5' color={'white'}>
+                <Typography variant='body1' color={'white'}>
                     {REQUEST_STATUS_VALUES[i]}
                 </Typography>
                 <Typography variant='h4' color={'white'}>

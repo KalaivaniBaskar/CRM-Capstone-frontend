@@ -75,7 +75,7 @@ function App() {
         <Route element= { <RoutePermission allowedRoles={[USER_ROLES.Admin]} />}>
           <Route path= '/admin-dashboard' element={ <AdminDashboard />}></Route>
           <Route path= '/requests-chart' element={ <RequestsDataWrap />}></Route>
-          <Route path= '/sales-chart' element={ <YearlyRevWrap />}></Route>
+          <Route path= '/revenue-chart' element={ <YearlyRevWrap />}></Route>
           <Route path='/add-product' element={<AddProductWrapper />}></Route>
           <Route path='/add-employee' element={<AddEmployeeWrapper />}></Route>
           <Route path='/pending-adm' element={<PendingOdWrap />}></Route>

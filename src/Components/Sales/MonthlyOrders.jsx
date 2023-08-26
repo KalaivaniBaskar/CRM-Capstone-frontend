@@ -64,8 +64,8 @@ const MonthlyOrders = () => {
                     required
                     >
                         {
-                            ORDER_STATUS_VALUES.map( (u) => {
-                            return <MenuItem key={u} value={u}>{u}</MenuItem>
+                            ORDER_STATUS_VALUES.map( (u,i) => {
+                            return <MenuItem key={i} value={u}>{u}</MenuItem>
                             })
                         }
                     </Select>
@@ -89,7 +89,7 @@ const MonthlyOrders = () => {
             ORDER STATUS: {od.order_status}</Typography>
              <Divider />
             
-            <div className='grid-container-od' key={od.orderID}>
+            <div className='grid-container-od' key={`pd-${od.orderID}`}>
                   
                     <Typography  sx={{textDecoration: 'underline'}}  variant='body2'fontWeight={550} fontFamily={'serif'} >PRODUCT ID</Typography>
                     <Typography  sx={{textDecoration: 'underline'}} variant='body2'fontWeight={550} fontFamily={'serif'} >NAME</Typography>
