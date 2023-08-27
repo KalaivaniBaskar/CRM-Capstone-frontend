@@ -21,14 +21,14 @@ const AdminDashboard = () => {
 
   return (
     <AdminLayout>
-        <Grid container gap={2}>
-        <Grid item xs key={"revenue"}>
-          <YearlyRevenue />
+        <Grid item xs>
+        <RequestsData /> 
         </Grid>
-        <Grid item xs key={"requests"}>
-          <RequestsData />
+        
+        <Grid item xs>
+        <YearlyRevenue />
         </Grid>
-        </Grid>
+
     </AdminLayout>
   )
 }

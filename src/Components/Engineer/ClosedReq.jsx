@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Grid, Stack, Typography,  Box , Divider, Paper, TextField } from '@mui/material';
+import {  Grid, Stack, Typography,  Divider, Paper,  } from '@mui/material';
 import axios from 'axios';
 import { BASE_URL } from '../../Data/APIdata';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import LoadModal from '../Customer/LoadModal';
 
 const ClosedReq = () => {
     const [requests, setRequests] = useState([]);
-
+     const navigate = useNavigate()
     // Modal
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);  
@@ -29,6 +29,10 @@ const ClosedReq = () => {
             }
             catch(error){
               console.log(error);
+              if( error.response.status === 403) {
+                window.alert("Session expired. Login again to continue")
+                navigate('/')
+            }
           }
           }
 

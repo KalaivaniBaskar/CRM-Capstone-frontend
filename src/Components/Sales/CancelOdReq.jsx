@@ -70,6 +70,10 @@ const CancelOdReq = () => {
         }
         catch(error){
           console.log(error);
+          if( error.response.status === 403) {
+            window.alert("Session expired. Login again to continue")
+            navigate('/')
+        }
       }
         }
 

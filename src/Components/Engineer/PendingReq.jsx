@@ -42,6 +42,10 @@ const PendingReq = () => {
               catch(error){ 
                   console.log("error occured", error)
                   handleClose()
+                  if( error.response.status === 403) {
+                    window.alert("Session expired. Login again to continue")
+                    navigate('/')
+                }
                   return error
               }
         }
@@ -61,6 +65,10 @@ const PendingReq = () => {
             }
             catch(error){
               console.log(error);
+              if( error.response.status === 403) {
+                window.alert("Session expired. Login again to continue")
+                navigate('/')
+            }
           }
           }
 

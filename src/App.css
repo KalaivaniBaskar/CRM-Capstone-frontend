@@ -83,4 +83,40 @@ background: linear-gradient(113deg, rgba(2,202,209,1) 18%, rgba(0,205,172,1) 100
   80% {
     transform: rotateX(-30deg);
   }
+} 
+
+.mainGrid{
+  height: 100vh;
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px; 
+  grid-template-areas:
+  "g1 g2 g3"
+  "g4 g7 g5"
+  "g4 g8 g6";
+}
+.g1{
+  grid-area: g1;
+}
+.g2{
+  grid-area: g2;
+}
+.g3{
+  grid-area: g3;
+}
+.g4{
+  grid-area: g4;
+}
+.g5{
+  grid-area: g5;
+}
+.g6{
+  grid-area: g6;
+}
+.g7{
+  grid-area: g7;
+}
+.g8{
+  grid-area: g8;
 }

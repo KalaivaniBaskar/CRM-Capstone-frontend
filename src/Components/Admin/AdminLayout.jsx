@@ -13,7 +13,8 @@ const AdminLayout = ({ children }) => {
     height: '100vh'}} >
         <SidePanelFixed />
       </Grid>
-      <Grid item xs sx={{overflow : 'auto'}} height={'100vh'}>
+      <Grid item xs sx={{overflow : 'auto'}} height={'100vh'} >
+       
         {children}
       </Grid>
     </Grid>

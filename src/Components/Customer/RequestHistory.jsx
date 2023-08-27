@@ -32,7 +32,10 @@ const RequestHistory = () => {
         catch(error){
           console.log(error);
           dispatch(logoutUser())
-          navigate('/')
+          if( error.response.status === 403) {
+            window.alert("Session expired. Login again to continue")
+            navigate('/')
+        }
       }
       }
 

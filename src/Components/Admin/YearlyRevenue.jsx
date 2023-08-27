@@ -187,7 +187,7 @@ const YearlyRevenue = () => {
             }
             catch(error){
               console.log(error);
-              if( error.status === 403) {
+              if( error.response.status === 403) {
                 window.alert("Session expired. Login again to continue")
                 navigate('/')
             }
@@ -199,13 +199,13 @@ const YearlyRevenue = () => {
       }, [])
 
   return (
-    <Grid container  p={1} alignItems={'space-evenly'}>
-         { !close &&
-             <div className='.grid-container-eq'>
-
+     <Grid container rowGap={2} columnGap={1} p={1} alignItems={'space-evenly'} justifyContent={'space-evenly'}> 
+      
+           <Grid item xs={12} sm={12} md={3} lg={3} xl={3}>
             <Stack gap={2} >
+            { !close &&
                 <Box borderRadius={'20px'}  >
-                    <Box m={1} className='gradient-b' component={Paper} p={'2rem'}>
+                    <Box m={1} className='gradient-b' component={Paper} >
                         <Typography variant='h5' color={'white'}>
                         <MonetizationOnIcon fontSize='large' sx={{m:1}}></MonetizationOnIcon>
                          Annual Revenue
@@ -214,10 +214,11 @@ const YearlyRevenue = () => {
                            Rs.{yearlyRev.reduce((a,b) => a+b, 0)}</Typography>
                     </Box>
                 </Box>
+              }
+              { !close && 
                 <Box borderRadius={'20px'}  >
-                <Box m={1} className='gradient-b' component={Paper} p={'2rem'}>
+                <Box m={1} className='gradient-b' component={Paper} >
                      
-                       
                         <Typography variant='h5' color={'white'}>
                         <MonetizationOnIcon fontSize='large' sx={{m:1}}>
                         </MonetizationOnIcon>
@@ -228,44 +229,46 @@ const YearlyRevenue = () => {
                             </Typography>
                     </Box>
                 </Box>
-            </Stack>
-        </div>
-            }
-      <div className='.grid-container-eq'>
+                  }
+            </Stack>           
+           </Grid>
 
+           <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
           { !close &&
           <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
              <Typography> Monthly Revenue</Typography>
             <LineChart data={lineData} options={options} />
             </Box>
             }
-    
-     
+           </Grid>
+           <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+
           { !close &&
           <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
              <Typography> Yearly Revenue</Typography>
             <LineChart data={lineDataY} options={options} />
             </Box>
             }
-    </div>
-    <div className='.grid-container-eq'>
-
+          </Grid>
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
           { !close &&
           <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
              <Typography> Current Month Orders</Typography>
             <PieChart data={data} options={options} />
             </Box>
             }
-    
-      
+           </Grid>
+           
+           <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+
+
           { !close &&
           <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
              <Typography> Current Year Orders</Typography>
             <DoughnutChart data={dataY} options={options} />
             </Box>
             }
-            </div>
-   
+            </Grid>
     </Grid>
   )
 }

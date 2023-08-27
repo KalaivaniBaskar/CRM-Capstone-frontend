@@ -106,7 +106,7 @@ const RequestsData = () => {
             }
             catch(error){
               console.log(error);
-              if( error.status === 403) {
+              if( error.response.status === 403) {
                 window.alert("Session expired. Login again to continue")
                 navigate('/')
             }
@@ -119,47 +119,50 @@ const RequestsData = () => {
 
   return (
     
-    <Grid container justifyContent={'space-evenly'} alignItems={'center'} p={1}>
-      <div className='.grid-container-eq'>
+    <Grid container columnGap={1} rowGap={1} justifyContent={'space-evenly'} alignItems={'center'} p={1}>
+       <Grid item xs={12} sm={12} md={3} lg={3} xl={3}>
+       <Stack direction={'row'} justifyContent={'space-evenly'}>
+        <Box>
       <Typography variant='body1'>Monthly Requests</Typography>
 
          {
           numM.length > 0 && 
           numM.map( (req, i) => {
             return  <Box borderRadius={'20px'}  >
-            <Box m={1} className='gradient-b' component={Paper} p={'2rem'}>
+            <Box m={1} className='gradient-b' component={Paper} >
                 <Typography variant='body1' color={'white'}>
                     {REQUEST_STATUS_VALUES[i]}
                 </Typography>
-                <Typography variant='h4' color={'white'}>
+                <Typography variant='h6' color={'white'}>
                      {req}
                   </Typography>
             </Box>
-        </Box>
+          </Box>
           } )
          }
-      </div>
-
-      <div className='.grid-container-eq'>
+      </Box>
+      <Box>
       <Typography variant='body1'>Yearly Requests</Typography>
 
       {
           numY.length > 0 && 
           numY.map( (req, i) => {
             return  <Box borderRadius={'20px'} key={`reqchart-${i}` }>
-            <Box m={1} className='gradient-b' component={Paper} p={'2rem'}>
+            <Box m={1} className='gradient-b' component={Paper} >
                 <Typography variant='body1' color={'white'}>
                     {REQUEST_STATUS_VALUES[i]}
                 </Typography>
-                <Typography variant='h4' color={'white'}>
+                <Typography variant='h6' color={'white'}>
                      {req}
                   </Typography>
             </Box>
         </Box>
           } )
         }
-      </div> 
-      <div className='.grid-container-eq'>
+        </Box>
+      </Stack>
+      </Grid>
+      <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
       { !close &&
           <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper}> 
                          <Typography> Current Month Requests</Typography>
@@ -167,6 +170,9 @@ const RequestsData = () => {
         </Box>
          
             }
+        </Grid>
+        <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+
               { !close &&
           
           <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} >
@@ -175,7 +181,7 @@ const RequestsData = () => {
             <BarChart data={yearlydata} options={options} />
         </Box>
             }
-       </div>
+       </Grid>
      {/* <Grid item xs>
             <Stack gap={2} >
                 <Box borderRadius={'20px'}  >

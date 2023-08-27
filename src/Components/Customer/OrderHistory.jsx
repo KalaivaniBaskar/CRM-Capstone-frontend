@@ -90,7 +90,10 @@ const OrderHistory = () => {
           catch(error){ 
               console.log("error occured", error)
               handleClose()
-              return error
+              if( error.response.status === 403) {
+                window.alert("Session expired. Login again to continue")
+                navigate('/')
+            }
           }
         
     }
