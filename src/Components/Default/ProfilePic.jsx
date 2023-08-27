@@ -3,14 +3,17 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import AppBarComponent from '../AppBarComponent/AppBarComponent';
-import { changeUserPic } from '../../Redux/Reducers/userReducer';
+import { changeUserPhone, changeUserPic } from '../../Redux/Reducers/userReducer';
 import { BASE_URL } from '../../Data/APIdata';
+import { useNavigate } from 'react-router-dom';
 
 const ProfilePic = () => {
      
     const user = useSelector(state => state.userInfo.user_data)
     const url = user.pic_URL
     const picID = user.pic_URL_ID
+    const navigate = useNavigate()
+    const [phone, setPhone] = useState();
     const [image, setImage] = useState({url: url, public_id: ""});
     const [delImage, setDelImage] = useState({url: "", public_id: ""});
     const [fileSizeExceeded, setFileSizeExceeded] = useState(false);
@@ -78,6 +81,29 @@ const ProfilePic = () => {
                     return error
                 }
          }
+         const updateUserPhone = async() => {
+                try{ 
+                    
+                    const token = localStorage.getItem('tokenAuth')
+                    const email = localStorage.getItem('email')
+                    const role = localStorage.getItem('role')
+                    const config = { headers : {"x-auth-token" : token}}
+                    const data = { email : email, phone : phone}
+                    const response = await axios.put(`${BASE_URL}/user/update-phone`, 
+                    data, config )
+                    if(response.status === 200) { 
+                        dispatch(changeUserPhone({phone : phone}))
+                        window.alert("Phone number updated")
+                        navigate(`/${role}-dashboard`)
+                    }
+                }
+                catch(error){ 
+                    console.log("phone number not updated")
+                    window.alert("Phone number not updated")
+                    return error
+                }
+         }
+
          const deleteImage = async (public_id) => {
             try{
             console.log("delete old image")
@@ -122,6 +148,16 @@ const ProfilePic = () => {
                             File size exceeded the limit 2MB
                         </p>
         )}
+
+        <Stack gap={2} width={'90%'} my={'2rem'}>
+            <TextField type='number' required 
+            label="Phone"
+            name="phone"
+            variant='outlined'
+            placeholder='Enter phone number'
+            onChange={(e) => setPhone(e.target.value)} /> 
+            <Button onClick={updateUserPhone}>Update</Button>
+        </Stack>
     </Stack>
    
   )

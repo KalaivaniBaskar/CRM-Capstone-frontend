@@ -102,6 +102,10 @@ const Cart = () => {
                 console.log("error occured", error)
                 handleClose()
                 setPlace(false)
+                if( error.response.status === 403) {
+                    window.alert("Session expired. Login again to continue")
+                    navigate('/')
+                }
                 return error
             }
         

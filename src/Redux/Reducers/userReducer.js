@@ -23,10 +23,13 @@ const userSlice = createSlice({
         changeUserPic: (state, action) => {
             state.user_data  = ({...state.user_data, pic_URL : action.payload.url,
                 pic_URL_ID : action.payload.public_id })
+        },
+        changeUserPhone: (state, action) => {
+            state.user_data  = ({...state.user_data, phone : action.payload.phone })
         }
     }
 })
 // export actions
-export const {loginUser, logoutUser, changeUserPic} = userSlice.actions;
+export const {loginUser, logoutUser, changeUserPic, changeUserPhone} = userSlice.actions;
 // export the userslice reducer
 export default userSlice.reducer
