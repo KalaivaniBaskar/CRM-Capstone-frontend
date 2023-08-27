@@ -7,11 +7,11 @@ const SalesLayout = ({ children }) => {
   return (
     <>
     <AppBarComponent />
-    <Grid container>
+    <Grid container  mt={'4.4rem'}>
       <Grid item sx={{ display: { xs: 'none', md: 'flex'  } , height: '100vh'}} >
       <SidePanelFixed />
       </Grid>
-      <Grid item  xs p={2}>
+      <Grid item  xs p={2} sx={{overflow : 'auto'}} height={'100vh'}>
         {children}
       </Grid>
     </Grid>

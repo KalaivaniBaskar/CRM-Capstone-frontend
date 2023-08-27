@@ -36,6 +36,7 @@ import AddProductWrapper from './Components/Admin/AddProductWrapper';
 import AddEmployeeWrapper from './Components/Admin/AddEmployeeWrapper';
 import YearlyRevWrap from './Components/Admin/YearlyRevWrap';
 import PendingOdWrap from './Components/Admin/PendingOdWrap';
+import MktDashboard from './Components/Marketing/MktDashboard';
 
 function App() {
   const USER_ROLES_VALUES = Object.values(USER_ROLES);
@@ -47,7 +48,6 @@ function App() {
          <Route path='/' element={ <AppLayout />}>
          <Route path='/' element={ <Home />}></Route>
          <Route path='/about' element={ <About />}></Route>
-         <Route path='/pricing' element={ <Pricing />}></Route>
          <Route path='/products' element={ <Products />}></Route>
          <Route path='/activate/:id' element={ <ActivateAccount />}></Route> 
          <Route path='/reset-pwd/:id/:token' element={ <ResetPwd />}></Route> 
@@ -104,6 +104,10 @@ function App() {
         </Route> 
 
         {/* for marketing */}
+        <Route element= { <RoutePermission allowedRoles={[USER_ROLES.Marketing]} />}>
+            <Route path = '/mkt-dashboard' element = {<MktDashboard />} />
+        </Route>
+
 
          <Route path="*" element={<h3>404 : Page not found</h3>}></Route>
          </Route>

@@ -157,7 +157,7 @@ const RequestsData = () => {
       </div> 
       <div className='.grid-container-eq'>
       { !close &&
-          <Box minHeight={'500px'} > 
+          <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper}> 
                          <Typography> Current Month Requests</Typography>
             <BarChart data={data} options={options} />
         </Box>
@@ -165,7 +165,7 @@ const RequestsData = () => {
             }
               { !close &&
           
-          <Box minHeight={'500px'} >
+          <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} >
               <Typography> Yearly Requests </Typography>
            
             <BarChart data={yearlydata} options={options} />

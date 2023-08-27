@@ -55,12 +55,11 @@ const MonthlyOrders = () => {
                 <InputLabel id="demo-simple-select-label"> Select Order Status</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
-                    variant='filled'
+                    variant='standard'
                     id="demo-simple-select"
                     value={status}
                     label="Select status"
-                    onChange={(e) => setStatus(e.target.value)}
-                    fullWidth
+                    onChange={(e) => setStatus(e.target.value)}                    
                     required
                     >
                         {
@@ -80,7 +79,7 @@ const MonthlyOrders = () => {
                  monthlyOD.length > 0 && 
                 monthlyOD.map( od =>  od.order_status === status  &&     
             <Grid item xs={12} sm={10} md={5} lg={4} xl={4} key={od.orderID}>
-            <Stack className='gradient-l' component={Paper} overflow={'auto'}
+            <Stack  component={Paper} overflow={'auto'}
             p={'1rem'}> 
    
             <Typography variant='body2' fontWeight={550} fontFamily={'serif'} sx={{m:1, border: '1px dashed grey'}}>  

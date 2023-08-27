@@ -1,10 +1,7 @@
 import React from 'react'
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, MenuItem, 
-    Container, Avatar, Button, Tooltip, Drawer, List, ListItem, ListItemButton,
-    ListItemIcon, ListItemText, Divider, Badge} from '@mui/material' 
+import {  Box,  IconButton, Typography,  List, ListItem, ListItemButton,
+    ListItemIcon, ListItemText, Divider} from '@mui/material' 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { useSelector } from 'react-redux'; 
 import { useNavigate } from 'react-router-dom';
 import { USER_ROLES } from '../../Data/Roles';
@@ -26,7 +23,7 @@ const SidePanel = ({ isDraw, setIsDraw}) => {
 
 
   return (
-    <Box p={2} width={'200px'} textAlign={'center'} role='presentation' bgcolor={'#F8F8F8'}>
+    <Box p={2} width={'200px'} textAlign={'center'} role='presentation'>
     <Typography variant='subtitle1' fontStyle={'oblique'} fontWeight={550}>
       Hi {user.username} 
     </Typography> 
@@ -298,7 +295,25 @@ const SidePanel = ({ isDraw, setIsDraw}) => {
           </ListItem>
 
         </>
-      }
+      } 
+
+{
+        user.role === USER_ROLES.Marketing && 
+        <>
+        <List>           
+            <ListItem key={'Dashboard'} disablePadding>
+            <ListItemButton onClick={() => navigate('/mkt-dashboard')}>
+              <ListItemIcon>
+                <DashboardIcon />                
+              </ListItemIcon>
+              <ListItemText primary={'Dashboard'} />
+            </ListItemButton>
+          </ListItem>
+          
+          </List>
+          </>
+
+   }
 </Box>
   )
 }

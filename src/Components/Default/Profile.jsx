@@ -8,7 +8,7 @@ const Profile = () => {
     const navigate = useNavigate();
 
   return (
-    <Box m={2} p={2}>
+    <Box minWidth={'250px'} p={2} sx={{wordBreak : 'break-word'}}>
     <Paper>
          <Typography variant='subtitle1'  >            
            Profile: </Typography>

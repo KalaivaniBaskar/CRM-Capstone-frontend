@@ -41,6 +41,7 @@ background: linear-gradient(113deg, rgba(2,202,209,1) 18%, rgba(0,205,172,1) 100
   grid-template-columns: 100px 3fr 1fr 2fr 1fr 1fr;
   grid-gap: 10px;
   background-color: #cdebac;
+  border-radius: 5px;
   padding: 10px; 
   overflow: auto;
 }
@@ -59,6 +60,9 @@ background: linear-gradient(113deg, rgba(2,202,209,1) 18%, rgba(0,205,172,1) 100
   background-color: #cdebac;
   padding: 10px; 
   overflow: auto;
+  gap: 5px; 
+  row-gap: 5px;
+  column-gap: 5px;
 }
 .grid-container-eq3 {
   display: grid;

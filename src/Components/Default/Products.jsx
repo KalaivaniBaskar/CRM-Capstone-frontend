@@ -31,7 +31,7 @@ const Products = () => {
     <>
     <AppBarComponent />
     <Grid container gap={2} justifyContent={'center'} alignItems={'center'} 
-    my={'2rem'} minWidth={'250px'}>
+    my={'2rem'} minWidth={'250px'} mt={'5rem'} >
        {
         productsAll.length && 
         productsAll.map( p =>

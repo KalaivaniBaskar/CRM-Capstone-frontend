@@ -3,7 +3,7 @@ import React from 'react'
 
 const Base = ({children}) => {
   return (
-        <Box p={'1rem'}>
+        <Box p={'1rem'} mt={'4.4rem'}>
         {children}
         </Box> 
   )

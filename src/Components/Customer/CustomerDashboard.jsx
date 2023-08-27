@@ -26,7 +26,7 @@ const CustomerDashboard = () => {
   return (
     <CustLayout>
        
-       <Grid container gap={2}> 
+       <Grid container gap={2} p={1}> 
         <Grid item xs={12} sm={10} md={8} lg={6} xl={4} >
           <Profile />
          </Grid>

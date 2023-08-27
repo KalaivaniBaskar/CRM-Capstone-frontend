@@ -22,7 +22,7 @@ const SidePanelFixed = () => {
     const navigate = useNavigate();
 
   return (
-    <Box p={2} width={'200px'} textAlign={'center'} role='presentation' bgcolor={'#F8F8F8'}>
+    <Box p={2} width={'200px'} textAlign={'center'} role='presentation' bgcolor={'#FFFFFF'}>
     <Typography variant='subtitle1' fontStyle={'oblique'} fontWeight={550}>
       Hi {user.username} 
     </Typography> 
@@ -284,6 +284,24 @@ const SidePanelFixed = () => {
 
         </>
       }
+
+{
+        user.role === USER_ROLES.Marketing && 
+        <>
+        <List>           
+            <ListItem key={'Dashboard'} disablePadding>
+            <ListItemButton onClick={() => navigate('/mkt-dashboard')}>
+              <ListItemIcon>
+                <DashboardIcon />                
+              </ListItemIcon>
+              <ListItemText primary={'Dashboard'} />
+            </ListItemButton>
+          </ListItem>
+          
+          </List>
+          </>
+
+   }
 </Box>
   )
 }

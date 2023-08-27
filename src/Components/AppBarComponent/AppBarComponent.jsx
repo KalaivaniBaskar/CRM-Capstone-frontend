@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState, useRef } from 'react';
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, MenuItem, 
-Container, Avatar, Button, Tooltip, Drawer, List, ListItem, ListItemButton,
-ListItemIcon, ListItemText, Divider, Badge} from '@mui/material' 
+Container, Avatar, Button, Tooltip, Drawer, Badge} from '@mui/material' 
 import FlareIcon from '@mui/icons-material/Flare';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -58,7 +57,7 @@ const navigate = useNavigate();
   return (
 
     <>
-    <AppBar position="static" color='success'>
+    <AppBar position="fixed" color='success'>
     <Container maxWidth="xl">
       <Toolbar disableGutters> 
       <IconButton
@@ -120,15 +119,14 @@ const navigate = useNavigate();
               display: { xs: 'block', md: 'none' },
             }}
           >
+            <MenuItem key="ABOUT" onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">ABOUT US</Typography>
+              </MenuItem>
+
             <MenuItem key="PRODUCTS" onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">PRODUCTS</Typography>
               </MenuItem>
-              <MenuItem key="PRICING" onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">PRICING</Typography>
-              </MenuItem>
-              <MenuItem key="ABOUT" onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">ABOUT US</Typography>
-              </MenuItem>
+              
               {
               user.role === USER_ROLES.Admin && 
               <MenuItem
@@ -221,13 +219,7 @@ const navigate = useNavigate();
             >
               PRODUCTS
             </Button>
-             <Button
-              key="PRICING"
-              onClick={() => navigate('/pricing')}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-              PRICING
-            </Button>
+             
              <Button
               key="ABOUT"
               onClick={() => navigate('/about')}

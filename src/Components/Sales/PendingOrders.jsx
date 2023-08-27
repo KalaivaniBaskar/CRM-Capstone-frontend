@@ -94,7 +94,7 @@ const PendingOrders = () => {
                  p_OD.length > 0 && 
                 p_OD.map( od =>         
             <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
-            <Stack className='gradient-l' component={Paper} overflow={'auto'}
+            <Stack  component={Paper} overflow={'auto'}
             p={'1rem'}> 
    
             <Typography variant='body2' fontWeight={550} fontFamily={'serif'} sx={{m:1, border: '1px dashed grey'}}>  

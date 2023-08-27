@@ -117,8 +117,8 @@ const Cart = () => {
 
     <Grid container justifyContent={'center'} alignItems={'center'} my={'1rem'} p={'1rem'}>
     <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
-    <Stack className='gradient-l' component={Paper} overflow={'auto'}
-    p={'1rem'}> 
+    <Stack  component={Paper} overflow={'auto'}
+    p={'1rem'} borderRadius={'10px'}> 
             <Typography variant='subtitle1' fontSize={'1.2rem'} fontWeight={500} fontFamily={'fantasy'} my={'1rem'}>Cart Items:</Typography>
 
             {/* <Stack direction={'row'} gap={5} columnGap={5} minHeight={'100px'} alignItems={'center'}> */}
@@ -136,33 +136,24 @@ const Cart = () => {
 
       {
         cart_items.length > 0 && 
-        cart_items.map( item => 
-
+        cart_items.map( (item , i)=> 
             <>
-            {/* <Stack direction={'row'} gap={5} columnGap={5} minHeight={'100px'} alignItems={'center'} key={item.product_ID}> */}
-            
-            <div className='grid-container' key={item.product_ID}>
+            <div className='grid-container' key={i}>
 
             <Avatar sx={{ width: 56, height: 56 }}  alt={item.product_name} src= {item.product_pic} />
-
             <Typography variant='body2' fontWeight={550} fontFamily={'serif'}>  {item.product_name}</Typography>
-          
             <Stack direction={'row'} key={`$(item.product_ID}-qty`}>
                 <IconButton color="primary" aria-label="add to cart"
                 onClick={ () => handleIncQty(item)}>
                 <AddCircleOutlineIcon />
                 </IconButton>
-
                 <Typography variant='body2'>  {item.qty}</Typography>
-
                 <IconButton color="primary" aria-label="remove from cart"
                 onClick={ () => handleDecQty(item)}>
                 <RemoveCircleOutlineIcon />
                 </IconButton>
             </Stack> 
-
             <Typography variant='body2' fontWeight={550} fontFamily={'serif'}>  {item.total}</Typography>
-
             <IconButton aria-label="delete" onClick={ () => handleRemoveItem(item)}>
             <DeleteIcon />
             </IconButton>

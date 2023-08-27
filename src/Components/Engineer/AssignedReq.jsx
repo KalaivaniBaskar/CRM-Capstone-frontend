@@ -126,7 +126,7 @@ const AssignedReq = () => {
         a_requests.length > 0 && 
         a_requests.map( r => 
          <Grid item xs={12} sm={10} md={8} lg={6} xl={4} key={r.requestID}>
-        <Stack className='gradient-l' component={Paper} overflow={'auto'}
+        <Stack borderRadius={'12px'}  component={Paper} overflow={'auto'}
             p={'1rem'}> 
                <Typography variant='body2' fontWeight={550} fontFamily={'serif'} my={1} 
                sx={{m:1, border: '1px dashed grey'}} > 

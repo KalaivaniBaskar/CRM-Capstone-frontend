@@ -18,8 +18,7 @@ const ActivateAccount = () => {
          const response = await axios.post(`${BASE_URL}/user/activate/${id}/${token}`)
          console.log(response);
             if(response.status === 200){
-                setResp("Account Activated. Login to Continue")
-                //let resetID = response.data.decode;
+                setResp("Account Activated. Login to Continue")                
                 setTimeout( ()=> {
                     navigate(`/`);
                 },3000)                
@@ -40,7 +39,6 @@ const ActivateAccount = () => {
 
     useEffect( () => { 
         const token  = searchparam.get("activateToken") 
-        //console.log("calling fn", token);
         if(id && token !== null) {
             activateUser(id,token);
         }

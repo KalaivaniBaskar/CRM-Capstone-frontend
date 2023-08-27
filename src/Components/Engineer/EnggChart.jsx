@@ -1,6 +1,6 @@
 import PieChart from '../Charts/PieChart';
 import React, { useState, useEffect } from 'react'
-import {  Grid, Box, Typography } from '@mui/material';
+import {  Grid, Box, Typography, Paper } from '@mui/material';
 import axios from 'axios';
 import { BASE_URL } from '../../Data/APIdata';
 import { REQUEST_STATUS } from '../../Data/statusCode';
@@ -70,9 +70,9 @@ const EnggChart = () => {
 
   return (
     <Grid container justifyContent={'center'} alignItems={'center'} p={1}>
-    <Grid item xs={12} sm={10} md={8} lg={6} xl={4} key={"engg-chart1"} my={2}>
+    <Grid item xs={12} sm={10} md={8} lg={6} xl={4} key={"engg-chart1"} my={2} >
           { !close &&
-          <Box minHeight={'500px'} > 
+          <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
            <Typography> Your Requests </Typography>
             <PieChart data={data} options={options} />
             </Box>

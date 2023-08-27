@@ -230,7 +230,7 @@ const YearlyRevenue = () => {
       <div className='.grid-container-eq'>
 
           { !close &&
-          <Box minHeight={'500px'} > 
+          <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
              <Typography> Monthly Revenue</Typography>
             <LineChart data={lineData} options={options} />
             </Box>
@@ -238,7 +238,7 @@ const YearlyRevenue = () => {
     
      
           { !close &&
-          <Box minHeight={'500px'} > 
+          <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
              <Typography> Yearly Revenue</Typography>
             <LineChart data={lineDataY} options={options} />
             </Box>
@@ -247,7 +247,7 @@ const YearlyRevenue = () => {
     <div className='.grid-container-eq'>
 
           { !close &&
-          <Box minHeight={'500px'} > 
+          <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
              <Typography> Current Month Orders</Typography>
             <PieChart data={data} options={options} />
             </Box>
@@ -255,7 +255,7 @@ const YearlyRevenue = () => {
     
       
           { !close &&
-          <Box minHeight={'500px'} > 
+          <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
              <Typography> Current Year Orders</Typography>
             <DoughnutChart data={dataY} options={options} />
             </Box>

@@ -1,6 +1,6 @@
 import BarChart from '../Charts/BarChart';
 import React, { useState, useEffect } from 'react'
-import {  Grid, Box, Typography } from '@mui/material';
+import {  Grid, Box, Typography,Paper } from '@mui/material';
 import axios from 'axios';
 import { BASE_URL } from '../../Data/APIdata';
 import { ORDER_STATUS } from '../../Data/statusCode';
@@ -87,7 +87,7 @@ const SalesChart = () => {
     <Grid item xs={12} sm={10} md={8} lg={6} xl={6} key={"sales-chart1"} my={2}
       >
           { !close &&
-          <Box minHeight={'500px'} > 
+          <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
              <Typography> Current Month Sales</Typography>
             <BarChart data={data} options={options} />
             </Box>

@@ -55,8 +55,8 @@ const RequestHistory = () => {
         {
         requests.length > 0 && 
         requests.map( r => 
-          <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
-          <Stack className='gradient-l' component={Paper} overflow={'auto'}
+          <Grid item xs={12} sm={10} md={8} lg={6} xl={4} key={r.requestID}>
+          <Stack borderRadius={'10px'} bgcolor={'white'} component={Paper} overflow={'auto'}
           p={'1rem'} > 
                 <Typography variant='body1' fontWeight={550} fontFamily={'serif'} my={1} 
                 sx={{m:1, border: '1px dashed grey'}}> 
