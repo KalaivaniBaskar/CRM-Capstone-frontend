@@ -59,7 +59,7 @@ const PendingOrders = () => {
             // console.log(token, email)
         const config = { headers : {"x-auth-token" : token}}
         const response = await axios.post(`${BASE_URL}/orders/get-orders`, 
-        {order_status : { $in : [ORDER_STATUS.Placed, ORDER_STATUS.Shipped]}}, config) 
+        {order_status : { $in : [ORDER_STATUS.Placed, ORDER_STATUS.Shipped, ORDER_STATUS.CancelReq]}}, config) 
         console.log(response) 
         if( response.status === 200) {
             setPOD( response.data.ordersList)
