@@ -15,6 +15,8 @@ import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import BadgeIcon from '@mui/icons-material/Badge';
 
 const SidePanel = ({ isDraw, setIsDraw}) => { 
 
@@ -245,7 +247,7 @@ const SidePanel = ({ isDraw, setIsDraw}) => {
             <ListItem key={'AddProd'} disablePadding>
             <ListItemButton onClick={() => navigate('/add-product')}>
               <ListItemIcon>
-                <ListAltIcon />                
+                <InventoryIcon />                
               </ListItemIcon>
               <ListItemText primary={'Add Product'} />
             </ListItemButton>
@@ -253,7 +255,7 @@ const SidePanel = ({ isDraw, setIsDraw}) => {
             <ListItem key={'Empl'} disablePadding>
             <ListItemButton onClick={() => navigate('/add-employee')}>
               <ListItemIcon>
-                <ListAltIcon />                
+                <BadgeIcon />                
               </ListItemIcon>
               <ListItemText primary={'Add Employee'} />
             </ListItemButton>
@@ -261,9 +263,17 @@ const SidePanel = ({ isDraw, setIsDraw}) => {
             <ListItem key={'Orders'} disablePadding>
             <ListItemButton onClick={() => navigate('/pending-adm')}>
               <ListItemIcon>
+                <AddTaskIcon />                
+              </ListItemIcon>
+              <ListItemText primary={'Pending OD'} />
+            </ListItemButton>
+          </ListItem>
+            <ListItem key={'Monthly OD'} disablePadding>
+            <ListItemButton onClick={() => navigate('/monthOD-adm')}>
+              <ListItemIcon>
                 <ListAltIcon />                
               </ListItemIcon>
-              <ListItemText primary={'Orders'} />
+              <ListItemText primary={'Monthly OD'} />
             </ListItemButton>
           </ListItem>
            

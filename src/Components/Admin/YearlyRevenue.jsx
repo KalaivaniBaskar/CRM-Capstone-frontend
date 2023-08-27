@@ -187,6 +187,10 @@ const YearlyRevenue = () => {
             }
             catch(error){
               console.log(error);
+              if( error.status === 403) {
+                window.alert("Session expired. Login again to continue")
+                navigate('/')
+            }
           }
           }
 

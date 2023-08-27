@@ -1,7 +1,7 @@
 import React from 'react'
-import {  Box,  IconButton, Typography, 
+import {  Box, Typography, 
      List, ListItem, ListItemButton,
-    ListItemIcon, ListItemText, Divider, Badge} from '@mui/material' 
+    ListItemIcon, ListItemText, Divider} from '@mui/material' 
 import { useSelector } from 'react-redux'; 
 import { useNavigate } from 'react-router-dom';
 import { USER_ROLES } from '../../Data/Roles';
@@ -15,6 +15,8 @@ import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import BadgeIcon from '@mui/icons-material/Badge';
 
 const SidePanelFixed = () => { 
 
@@ -234,7 +236,7 @@ const SidePanelFixed = () => {
             <ListItem key={'AddProd'} disablePadding>
             <ListItemButton onClick={() => navigate('/add-product')}>
               <ListItemIcon>
-                <ListAltIcon />                
+                <InventoryIcon />                
               </ListItemIcon>
               <ListItemText primary={'Add Product'} />
             </ListItemButton>
@@ -242,7 +244,7 @@ const SidePanelFixed = () => {
             <ListItem key={'Empl'} disablePadding>
             <ListItemButton onClick={() => navigate('/add-employee')}>
               <ListItemIcon>
-                <ListAltIcon />                
+                <BadgeIcon />                
               </ListItemIcon>
               <ListItemText primary={'Add Employee'} />
             </ListItemButton>
@@ -250,9 +252,17 @@ const SidePanelFixed = () => {
           <ListItem key={'Orders'} disablePadding>
             <ListItemButton onClick={() => navigate('/pending-adm')}>
               <ListItemIcon>
+                <AddTaskIcon />                
+              </ListItemIcon>
+              <ListItemText primary={' Pending OD'} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem key={'Monthly OD'} disablePadding>
+            <ListItemButton onClick={() => navigate('/monthOD-adm')}>
+              <ListItemIcon>
                 <ListAltIcon />                
               </ListItemIcon>
-              <ListItemText primary={'Orders'} />
+              <ListItemText primary={'Monthly OD'} />
             </ListItemButton>
           </ListItem>
         </List>

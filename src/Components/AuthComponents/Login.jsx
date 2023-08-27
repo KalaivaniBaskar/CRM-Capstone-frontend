@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../../Redux/Reducers/userReducer'; 
 import { USER_ROLES } from '../../Data/Roles.js';
 import { BASE_URL } from '../../Data/APIdata.js';
+import LoadModal from '../Customer/LoadModal';
 
 const Login = () => {
 
@@ -16,6 +17,8 @@ const Login = () => {
    const navigate = useNavigate();
    const location = useLocation();
    const from = location?.state?.from?.pathname || "/"
+   const [open, setOpen] = useState(false)
+  const handleClose = () => { setOpen(false)}
 
    const handleLoginSubmit = async (e) => {
          e.preventDefault();
@@ -62,7 +65,8 @@ const Login = () => {
    }
   
   return (
-  
+        <>
+        <LoadModal open={open} handleClose={handleClose} />
         <Box >
             <form onSubmit={handleLoginSubmit} >               
                 <TextField label = "Email" variant="outlined" fullWidth sx={{m: 1, bgcolor: 'white' }} 
@@ -93,7 +97,7 @@ const Login = () => {
             <Link to='/activate-mail'>Activate Account</Link>
             </Box>
             </Box>
-      
+          </>
   )
 }
 

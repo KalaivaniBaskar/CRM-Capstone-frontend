@@ -37,6 +37,7 @@ import AddEmployeeWrapper from './Components/Admin/AddEmployeeWrapper';
 import YearlyRevWrap from './Components/Admin/YearlyRevWrap';
 import PendingOdWrap from './Components/Admin/PendingOdWrap';
 import MktDashboard from './Components/Marketing/MktDashboard';
+import MonthlyOdWrap from './Components/Admin/MonthlyOdWrap';
 
 function App() {
   const USER_ROLES_VALUES = Object.values(USER_ROLES);
@@ -79,6 +80,7 @@ function App() {
           <Route path='/add-product' element={<AddProductWrapper />}></Route>
           <Route path='/add-employee' element={<AddEmployeeWrapper />}></Route>
           <Route path='/pending-adm' element={<PendingOdWrap />}></Route>
+          <Route path='/monthOD-adm' element={<MonthlyOdWrap />}></Route>
         </Route>
           {/* admin and engg route */}
           <Route element= { <RoutePermission allowedRoles={[USER_ROLES.Engineer, USER_ROLES.Admin]} />}>
