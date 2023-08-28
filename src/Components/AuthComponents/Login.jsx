@@ -22,6 +22,7 @@ const Login = () => {
 
    const handleLoginSubmit = async (e) => {
          e.preventDefault();
+         setOpen(true)
          try{
           const response = await axios.post(`${BASE_URL}/user/login`, user)
           //console.log(response);
@@ -54,10 +55,12 @@ const Login = () => {
             
           }
           else{
+            handleClose()
             console.log(response);
           }
          }
          catch(error){
+          handleClose()
           console.log(error, error.message);
           setUser({...user, password:""})
           window.alert(`Invalid. Try again`)

@@ -6,6 +6,7 @@ import { useFormik } from 'formik'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../Data/APIdata';
+import LoadModal from '../Customer/LoadModal';
 
  export const registerSchema = yup.object().shape({
     username: yup.string().required("Please enter name").min(2, 'Too Short!').max(50, 'Too Long!'),
@@ -28,7 +29,8 @@ const Signup = () => {
 
     const [resp, setResp] = useState("")
     const navigate = useNavigate();
-
+    const [open, setOpen] = useState(false)
+    const handleClose = () => { setOpen(false)}
     const {values, 
         handleChange, 
         handleSubmit,
@@ -57,23 +59,30 @@ const Signup = () => {
         phone: newUser.phone,
         password: newUser.password
     } 
+    setOpen(true)
     try{
     const response = await axios.post(`${BASE_URL}/user/register`, {new_User : user})
     //console.log(response); 
     if(response.status === 201 || response.status === 200 ) {
         setResp("Account created successfully! Activation link sent to your email")
+        handleClose()
     }
     else{
         setResp("Error occurred while creating account", response.status)
+        handleClose()
+
     }
     }
     catch(error){
         setResp("Error occurred while creating account")
+        handleClose()
         console.log(error);
     }
   }
 
   return (
+    <>
+    <LoadModal open={open} handleClose={handleClose} />
     <div> 
         {
             resp ? <p>{resp}</p>
@@ -159,6 +168,7 @@ const Signup = () => {
             </Box>
         }
     </div>
+    </>
   )
 }
 

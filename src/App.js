@@ -38,6 +38,7 @@ import YearlyRevWrap from './Components/Admin/YearlyRevWrap';
 import PendingOdWrap from './Components/Admin/PendingOdWrap';
 import MktDashboard from './Components/Marketing/MktDashboard';
 import MonthlyOdWrap from './Components/Admin/MonthlyOdWrap';
+import RevenueChartWrap from './Components/Admin/RevenueChartWrap';
 
 function App() {
   const USER_ROLES_VALUES = Object.values(USER_ROLES);
@@ -77,6 +78,7 @@ function App() {
           <Route path= '/admin-dashboard' element={ <AdminDashboard />}></Route>
           <Route path= '/requests-chart' element={ <RequestsDataWrap />}></Route>
           <Route path= '/revenue-chart' element={ <YearlyRevWrap />}></Route>
+          <Route path= '/total-revenue' element={ <RevenueChartWrap />}></Route>
           <Route path='/add-product' element={<AddProductWrapper />}></Route>
           <Route path='/add-employee' element={<AddEmployeeWrapper />}></Route>
           <Route path='/pending-adm' element={<PendingOdWrap />}></Route>

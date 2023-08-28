@@ -5,6 +5,7 @@ import AdminLayout from './AdminLayout.jsx';
 import { Grid } from '@mui/material';
 import RequestsData from './RequestsData.jsx';
 import YearlyRevenue from './YearlyRevenue.jsx';
+import RevenueChart from './RevenueChart.jsx';
 const AdminDashboard = () => {
     const navigate = useNavigate();
     useEffect( () => {
@@ -27,6 +28,10 @@ const AdminDashboard = () => {
         
         <Grid item xs>
         <YearlyRevenue />
+        </Grid>
+
+        <Grid item xs>
+        <RevenueChart />
         </Grid>
 
     </AdminLayout>

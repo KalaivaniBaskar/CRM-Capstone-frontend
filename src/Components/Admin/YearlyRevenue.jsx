@@ -1,4 +1,3 @@
-import BarChart from '../Charts/BarChart';
 import React, { useState, useEffect } from 'react'
 import {  Grid, Box, Typography, Stack, Paper } from '@mui/material';
 import axios from 'axios';
@@ -41,7 +40,7 @@ const YearlyRevenue = () => {
     
             const response = await axios.post(`${BASE_URL}/orders/monthly-orders`, 
             {email : email}, config) 
-            console.log(response) 
+            //console.log(response) 
             if( response.status === 200) {
                 
               const t = [...response.data.ordersMonthly]
@@ -62,13 +61,13 @@ const YearlyRevenue = () => {
                 const canreqY = temp.filter( od => od.order_status === ORDER_STATUS.CancelReq)
                 const cancelY = temp.filter( od => od.order_status === ORDER_STATUS.Cancelled)
                 const numY = [ placedY.length , shippedY.length, delivY.length, canreqY.length, cancelY.length ] 
-                console.log(numY, num)
+                //console.log(numY, num)
 
                 const monthlyRev = deliv.map ( (od) => od.order_amount)
                 const yearlyRev = delivY.map ( (od) => od.order_amount)
                 const monthlyRevID = deliv.map ( (od) => od.orderID)
                 const yearlyRevID = delivY.map ( (od) => od.orderID)
-                console.log(monthlyRev, yearlyRev, monthlyRevID, yearlyRevID)
+                //console.log(monthlyRev, yearlyRev, monthlyRevID, yearlyRevID)
                 setmonthlyRev(monthlyRev)
                 setyearlyRev(yearlyRev)
                  setData({
@@ -236,7 +235,7 @@ const YearlyRevenue = () => {
            <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
           { !close &&
           <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
-             <Typography> Monthly Revenue</Typography>
+             <Typography> Monthly Trending</Typography>
             <LineChart data={lineData} options={options} />
             </Box>
             }
@@ -245,7 +244,7 @@ const YearlyRevenue = () => {
 
           { !close &&
           <Box p={3} minWidth={'300px'} borderRadius={'10px'} component={Paper} > 
-             <Typography> Yearly Revenue</Typography>
+             <Typography> Yearly Trending</Typography>
             <LineChart data={lineDataY} options={options} />
             </Box>
             }

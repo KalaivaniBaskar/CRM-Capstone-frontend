@@ -40,6 +40,7 @@ const OrderHistory = () => {
             else {
                 setReqOrder("")
                 setReq("")
+               
             }
         }
         catch(error){ 
@@ -47,6 +48,11 @@ const OrderHistory = () => {
             setReqOrder("")
             setReq("")
             handleClose()
+            if( error.response.status === 403) {
+                dispatch(logoutUser())
+                window.alert("Session expired. Login again to continue")
+                navigate('/')
+            }
             return error
         }
     }
