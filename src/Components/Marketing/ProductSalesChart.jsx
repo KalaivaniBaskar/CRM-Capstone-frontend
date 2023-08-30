@@ -40,9 +40,9 @@ const ProductSalesChart = () => {
     
             const response = await axios.post(`${BASE_URL}/orders/get-products-data`, 
             {email, year : patternY , month : pattern}, config) 
-            console.log(response) 
+            //console.log(response) 
             if( response.status === 200) {
-                console.log(response.data) 
+               // console.log(response.data) 
                 const all = response.data.productsSold
                 const delivered = response.data.productsSoldCount[0].count
                 const cancelled = response.data.productsCancelled[0].count
@@ -74,7 +74,7 @@ const ProductSalesChart = () => {
                         
                     })
                 }) 
-               console.log(KCqty, WMqty, VCqty, WPqty, APqty, totalCount) 
+              // console.log(KCqty, WMqty, VCqty, WPqty, APqty, totalCount) 
                setCategory({ WM : WMqty, KC : KCqty, WP : WPqty, VC : VCqty, AP : APqty}) 
                setchartData({
                 labels: [ "WM"  , "KC"  , "WP"  , "VC"  , "AP"  ],

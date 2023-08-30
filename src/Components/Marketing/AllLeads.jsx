@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../Data/APIdata';
 import useCTX from  '../Context/useCTX.js'
 import { LEAD_STATUS } from '../../Data/statusCode';
+import MailIcon from '@mui/icons-material/Mail';
 
 
 export const BoxComponent = styled(Box)`
@@ -54,10 +55,15 @@ const AllLeads = () => {
         getData();
      },[])
 
-    const editEmployee = (id) => {
+    const updateLead = (id) => {
         const [current] = allLeads.filter( (lead) => lead.lead_id === id)
         setCLead(current)
         navigate('/edit-lead')
+    }
+    const mailLead = (id) => {
+        const [current] = allLeads.filter( (lead) => lead.lead_id === id)
+        setCLead(current)
+        navigate('/cust-email')
     }
     
   return (
@@ -102,6 +108,7 @@ const AllLeads = () => {
                         <TableCell>lead_created</TableCell>
                       
                         <TableCell>Edit</TableCell>
+                        <TableCell>Connect</TableCell>
                        
                     </TableRow>
                 </TableHead>
@@ -119,8 +126,15 @@ const AllLeads = () => {
                             <TableCell>{lead.lead_created}</TableCell  >
                             <TableCell>
                                 <IconButton color='error' 
-                                onClick={ () => editEmployee(lead.lead_id)}>
+                                onClick={ () => updateLead(lead.lead_id)}>
                                     <ModeEditIcon />
+                                </IconButton>
+                                
+                            </TableCell>
+                            <TableCell>
+                                <IconButton color='primary' 
+                                onClick={ () => mailLead(lead.lead_id)}>
+                                    <MailIcon />
                                 </IconButton>
                                 
                             </TableCell>

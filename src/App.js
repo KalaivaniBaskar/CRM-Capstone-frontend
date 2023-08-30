@@ -42,6 +42,7 @@ import RevenueChartWrap from './Components/Admin/RevenueChartWrap';
 import AllLeadWrapper from './Components/Marketing/AllLeadWrapper';
 import AddLeadWrap from './Components/Marketing/AddLeadWrap';
 import EditLeadWrap from './Components/Marketing/EditLeadWrap';
+import CustEmail from './Components/Marketing/CustEmail';
 
 function App() {
   const USER_ROLES_VALUES = Object.values(USER_ROLES);
@@ -117,7 +118,8 @@ function App() {
             <Route path = '/all-leads' element = {<AllLeadWrapper />} />
             <Route path = '/add-lead' element = {<AddLeadWrap />} />
             <Route path = '/edit-lead' element = {<EditLeadWrap />} />
-        </Route>03
+            <Route path = '/cust-email' element = {<CustEmail />} />
+        </Route>
 
 
 

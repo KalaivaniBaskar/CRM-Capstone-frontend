@@ -32,7 +32,7 @@ const EditLeads = () => {
             lead_phone: updLead.lead_phone,
             lead_address : updLead.lead_address
         }
-        console.log(lead)
+        //console.log(lead)
         
         try {
         const token = localStorage.getItem('tokenAuth')

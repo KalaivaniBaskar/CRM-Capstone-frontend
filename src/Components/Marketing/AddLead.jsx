@@ -42,7 +42,6 @@ const AddLead = () => {
         const email = localStorage.getItem('email')
               //  console.log(token, email)
             const config = { headers : {"x-auth-token" : token}} 
-           console.log(lead)
         const response = await axios.post(`${BASE_URL}/leads/add-leads`, 
         lead, config) 
         console.log(response);

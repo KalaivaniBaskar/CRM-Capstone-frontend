@@ -19,6 +19,7 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import BadgeIcon from '@mui/icons-material/Badge';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import UpdateIcon from '@mui/icons-material/Update';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
 
 const SidePanelFixed = () => { 
 
@@ -333,7 +334,14 @@ const SidePanelFixed = () => {
               <ListItemText primary={'Add Lead'} />
             </ListItemButton>
           </ListItem>
-        
+          <ListItem key={'Send email'} disablePadding>
+            <ListItemButton onClick={() => navigate('/cust-email')}>
+              <ListItemIcon>
+                <InboxIcon />                
+              </ListItemIcon>
+              <ListItemText primary={'Send email'} />
+            </ListItemButton>
+          </ListItem>
           </List>
           </>
 
