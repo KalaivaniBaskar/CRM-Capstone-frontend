@@ -205,11 +205,13 @@ const YearlyRevenue = () => {
             { !close &&
                 <Box borderRadius={'20px'}  >
                     <Box m={1} className='gradient-b' component={Paper} >
-                        <Typography variant='h5' color={'white'}>
+                        <Typography variant='h5' color={'white'}
+                         className=" animate__animated animate__rubberBand animate__repeat-3">
                         <MonetizationOnIcon fontSize='large' sx={{m:1}}></MonetizationOnIcon>
                          Annual Revenue
                         </Typography>
-                        <Typography variant='h4' color={'white'}>
+                        <Typography variant='h4' color={'white'}
+                        className=" animate__animated animate__rubberBand animate__repeat-3">
                            Rs.{yearlyRev.reduce((a,b) => a+b, 0)}</Typography>
                     </Box>
                 </Box>

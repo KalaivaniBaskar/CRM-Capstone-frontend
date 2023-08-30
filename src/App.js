@@ -39,6 +39,9 @@ import PendingOdWrap from './Components/Admin/PendingOdWrap';
 import MktDashboard from './Components/Marketing/MktDashboard';
 import MonthlyOdWrap from './Components/Admin/MonthlyOdWrap';
 import RevenueChartWrap from './Components/Admin/RevenueChartWrap';
+import AllLeadWrapper from './Components/Marketing/AllLeadWrapper';
+import AddLeadWrap from './Components/Marketing/AddLeadWrap';
+import EditLeadWrap from './Components/Marketing/EditLeadWrap';
 
 function App() {
   const USER_ROLES_VALUES = Object.values(USER_ROLES);
@@ -84,6 +87,7 @@ function App() {
           <Route path='/pending-adm' element={<PendingOdWrap />}></Route>
           <Route path='/monthOD-adm' element={<MonthlyOdWrap />}></Route>
         </Route>
+        
           {/* admin and engg route */}
           <Route element= { <RoutePermission allowedRoles={[USER_ROLES.Engineer, USER_ROLES.Admin]} />}>
           <Route path= '/req-pending' element={ <PendingReqWrapper />}></Route>
@@ -110,7 +114,11 @@ function App() {
         {/* for marketing */}
         <Route element= { <RoutePermission allowedRoles={[USER_ROLES.Marketing]} />}>
             <Route path = '/mkt-dashboard' element = {<MktDashboard />} />
-        </Route>
+            <Route path = '/all-leads' element = {<AllLeadWrapper />} />
+            <Route path = '/add-lead' element = {<AddLeadWrap />} />
+            <Route path = '/edit-lead' element = {<EditLeadWrap />} />
+        </Route>03
+
 
 
          <Route path="*" element={<h3>404 : Page not found</h3>}></Route>

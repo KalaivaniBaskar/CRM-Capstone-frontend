@@ -91,7 +91,8 @@ const Login = () => {
                 
                  <Button type='submit' variant='contained' 
                  color='success'
-                 size='medium' sx={{m: 1 }} >
+                 size='medium' sx={{m: 1 }} 
+                 className="animate__animated animate__headShake animate__delay-5s animate__repeat-3" >
                     LOGIN
                  </Button>
             </form> 

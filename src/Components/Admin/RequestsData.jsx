@@ -129,7 +129,7 @@ const RequestsData = () => {
           numM.length > 0 && 
           numM.map( (req, i) => {
             return  <Box borderRadius={'20px'}  >
-            <Box m={1} className='gradient-b' component={Paper} >
+            <Box m={1} className='gradient-b' component={Paper} key={i}>
                 <Typography variant='body1' color={'white'}>
                     {REQUEST_STATUS_VALUES[i]}
                 </Typography>

@@ -8,11 +8,11 @@ export const ContextProvider = ({children}) => {
     const [order, setOrder] = useState({}); 
     const [requestM, setRequestM] = useState({}); 
     const [requestY, setRequestY] = useState({}); 
-    
+    const [cLead, setCLead] = useState({})
 
     return (
         <CtxContext.Provider value={{request, setRequest, 
-        requestY, setRequestY, requestM, setRequestM, order, setOrder }}>
+        requestY, setRequestY, requestM, setRequestM, order, setOrder, cLead, setCLead }}>
             {children}
         </CtxContext.Provider>
     )

@@ -40,8 +40,9 @@ const About = () => {
         <div>
       <Stack sx={{  justifyContent: 'center', alignItems: 'center' }} py={'1rem'}>
                 
-                    <Typography variant='h5'
-                    fontFamily={'cursive'} className='txt-shadow'>
+                    <Typography variant='h5' mt={'1rem'}
+                    fontFamily={'cursive'} 
+                    className="txt-shadow animate__animated animate__rubberBand animate__repeat-3">
                       Welcome to CleanLife !</Typography>
                     <Typography variant='subtitle'  p={'1rem'}
                      fontFamily={'revert'}

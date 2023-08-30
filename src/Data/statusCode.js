@@ -11,3 +11,10 @@ export const ORDER_STATUS = {
     "CancelReq" : "CANCEL_REQ",
     "Cancelled" : "CANCELLED"
 }
+
+export const LEAD_STATUS = {
+    "Approached": "APPROACHED",
+    "Negotiation": "NEGOTIATION",
+    "Won" : "WON",
+    "Lost": "LOST"
+}

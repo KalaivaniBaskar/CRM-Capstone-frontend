@@ -11,7 +11,7 @@ const MktLayout = ({ children }) => {
       <Grid item sx={{ display: { xs: 'none', md: 'flex'  } , height: '100vh'}} >
       <SidePanelFixed />
       </Grid>
-      <Grid item  xs sx={{overflow : 'auto'}} height={'100vh'} >
+      <Grid item  xs sx={{overflow : 'auto'}} height={'100vh'} my={'1rem'}>
         {children}
       </Grid>
     </Grid>

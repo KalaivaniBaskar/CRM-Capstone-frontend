@@ -119,11 +119,13 @@ const navigate = useNavigate();
               display: { xs: 'block', md: 'none' },
             }}
           >
-            <MenuItem key="ABOUT" onClick={handleCloseNavMenu}>
+            <MenuItem key="ABOUT" 
+             onClick={() => navigate('/about')}>
                 <Typography textAlign="center">ABOUT US</Typography>
               </MenuItem>
 
-            <MenuItem key="PRODUCTS" onClick={handleCloseNavMenu}>
+            <MenuItem key="PRODUCTS" 
+             onClick={() => navigate('/products')}>
                 <Typography textAlign="center">PRODUCTS</Typography>
               </MenuItem>
               

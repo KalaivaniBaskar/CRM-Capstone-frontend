@@ -3,6 +3,7 @@ import AuthForm from './AuthComponents/AuthForm'
 import { Box,  Grid, Paper, Stack, Typography } from '@mui/material'
 import AppBarComponent from './AppBarComponent/AppBarComponent'
 import Base from './Base'
+import 'animate.css';
 
 const Home = () => {
   return (
@@ -13,7 +14,8 @@ const Home = () => {
             justifyContent: 'center', alignItems: 'center' }} py={'1rem'}>
                 
                     <Typography variant='h5' padding={'1rem'}
-                    fontFamily={'cursive'} className='txt-shadow'>
+                    fontFamily={'cursive'} 
+                    className="txt-shadow animate__animated animate__bounce animate__repeat-3	">
                       Welcome to CleanLife !</Typography>
                     <Typography variant='subtitle'
                     fontWeight={600}>An Eco-friendly GREEN initative with low energy consumption appliances for your home needs!</Typography>
@@ -27,8 +29,10 @@ const Home = () => {
             justifyContent: 'center', alignItems: 'center' }}>
                     <img width={'90%'} height={'90%'} 
                     style={{borderRadius : '10px'}} src="https://res.cloudinary.com/dvbxa44e9/image/upload/v1692542253/appCRM/iyi94lfcwq3iytrdqjcg.jpg" alt="CleanLife"></img>
+                    
                     <Typography variant='h5' padding={'1rem'}
-                    fontFamily={'cursive'} className='txt-shadow'>
+                    fontFamily={'cursive'}
+                    className="txt-shadow animate__animated animate__bounce animate__repeat-3	">
                       Welcome to CleanLife !</Typography>
                     <Typography variant='subtitle'
                     fontWeight={600}>An Eco-friendly GREEN initative with low energy consumption appliances for your home needs!</Typography>

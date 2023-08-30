@@ -17,6 +17,8 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import BadgeIcon from '@mui/icons-material/Badge';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import UpdateIcon from '@mui/icons-material/Update';
 
 const SidePanelFixed = () => { 
 
@@ -227,7 +229,7 @@ const SidePanelFixed = () => {
           <ListItem key={'Sales'} disablePadding>
             <ListItemButton onClick={() => navigate('/revenue-chart')}>
               <ListItemIcon>
-                <MonetizationOnIcon />                
+                <TrendingUpIcon />                
               </ListItemIcon>
               <ListItemText primary={'Sales'} />
             </ListItemButton>
@@ -294,7 +296,7 @@ const SidePanelFixed = () => {
             <ListItem key={'Closed'} disablePadding>
             <ListItemButton onClick={() => navigate('/req-closed')}>
               <ListItemIcon>
-                <ListAltIcon />                
+                <UpdateIcon />                
               </ListItemIcon>
               <ListItemText primary={'Closed Req'} />
             </ListItemButton>
@@ -315,7 +317,23 @@ const SidePanelFixed = () => {
               <ListItemText primary={'Dashboard'} />
             </ListItemButton>
           </ListItem>
-          
+          <ListItem key={'Leads'} disablePadding>
+            <ListItemButton onClick={() => navigate('/all-leads')}>
+              <ListItemIcon>
+                <ListAltIcon />                
+              </ListItemIcon>
+              <ListItemText primary={'Leads'} />
+            </ListItemButton>
+          </ListItem>
+            <ListItem key={'Add Lead'} disablePadding>
+            <ListItemButton onClick={() => navigate('/add-lead')}>
+              <ListItemIcon>
+                <AddTaskIcon />                
+              </ListItemIcon>
+              <ListItemText primary={'Add Lead'} />
+            </ListItemButton>
+          </ListItem>
+        
           </List>
           </>
 
