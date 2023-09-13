@@ -1,3 +1,6 @@
+For testing Admin page: 
+for testing : Email: cleanlifeISO9000@outlook.com password:az34AZ#$
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
