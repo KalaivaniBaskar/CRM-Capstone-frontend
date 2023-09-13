@@ -3,8 +3,8 @@ ADMIN Email: cleanlifeISO9000@outlook.com
 password:az34AZ#$
 
 For other roles: 
-sales@cleanlife.com
-engg@cleanlife.com
+sales@cleanlife.com,
+engg@cleanlife.com,
 mkt@cleanlife.com
 password: az34AZ#$
 
