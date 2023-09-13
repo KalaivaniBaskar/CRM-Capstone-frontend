@@ -1,5 +1,12 @@
 For testing Admin page: 
-for testing : Email: cleanlifeISO9000@outlook.com password:az34AZ#$
+ADMIN Email: cleanlifeISO9000@outlook.com 
+password:az34AZ#$
+
+For other roles: 
+sales@cleanlife.com
+engg@cleanlife.com
+mkt@cleanlife.com
+password: az34AZ#$
 
 # Getting Started with Create React App
 
