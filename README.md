@@ -1,3 +1,13 @@
+For testing Admin page: 
+ADMIN Email: cleanlifeISO9000@outlook.com 
+password:az34AZ#$
+
+For other roles: create accounts using add employee with admin credentials or use ones below
+sales@cleanlife.com,
+engg@cleanlife.com,
+mkt@cleanlife.com
+password: az34AZ#$
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
