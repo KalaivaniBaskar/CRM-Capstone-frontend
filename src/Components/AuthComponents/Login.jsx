@@ -56,7 +56,7 @@ const Login = () => {
           }
           else{
             handleClose()
-            console.log(response);
+            //console.log(response);
           }
          }
          catch(error){

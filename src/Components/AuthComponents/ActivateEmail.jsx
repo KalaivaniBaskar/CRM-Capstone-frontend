@@ -14,11 +14,10 @@ const ActivateEmail = () => {
   const handleClose = () => { setOpen(false)}
   const handleSubmit = async(e) => {
     e.preventDefault();
-        setOpen(true)
-    console.log("resend");
+        setOpen(true);
     try{
      const response = await axios.post(`${BASE_URL}/user/activate-mail`, {email : email})
-     console.log(response);
+     //console.log(response);
         if(response.status === 200){
            handleClose()
            window.alert("Success. Check email")

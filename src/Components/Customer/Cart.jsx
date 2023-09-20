@@ -81,10 +81,9 @@ const Cart = () => {
             order_items_rating: []
         }
 
-        console.log(order)
+        //console.log(order)
 
         try{
-            console.log("placing order")
             const token = localStorage.getItem('tokenAuth')
             //console.log(token)
             const config = { headers : {"x-auth-token" : token}}

@@ -34,13 +34,13 @@ const AddEmployee = () => {
         },
         validationSchema: registerSchema,
         onSubmit: (newEmployee) => {
-            console.log(newEmployee);
+            //console.log(newEmployee);
             handleAddEmployee(newEmployee)
         }    
     }) 
     
         const handleAddEmployee = async(newEmployee) => {
-              console.log(newEmployee) 
+              //console.log(newEmployee) 
               const user = {
                 username : newEmployee.username,
                 email : newEmployee.email,
@@ -50,11 +50,10 @@ const AddEmployee = () => {
             }  
               const token = localStorage.getItem('tokenAuth')
               const config = { headers : {"x-auth-token" : token}}
-            //  const response = await axios.post(`${BASE_URL}/admin/add-employee`,newEmployee, config) 
            try{ 
               setOpen(true)
               const response = await axios.post(`${BASE_URL}/admin/add-employee`,{ new_User : user }, config) 
-              console.log(response) 
+              //console.log(response) 
               if(response.status === 201 || response.status ===  200) {
                 window.alert("Employee created")
                 handleClose()

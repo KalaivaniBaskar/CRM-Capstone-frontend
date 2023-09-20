@@ -16,7 +16,7 @@ const ForgotPwd = () => {
         setOpen(true); 
         try{
         const response = await axios.post(`${BASE_URL}/user/forgotpwd`, {email : email});
-        console.log(response) 
+        //console.log(response) 
         if(response.status === 200) {
             setOpen(false); 
             window.alert(`Reset Link senk`, response.data.message)

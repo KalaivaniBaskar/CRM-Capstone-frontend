@@ -23,16 +23,14 @@ const RequestsData = () => {
 
        const getRequestsData = async() => {
         try{ 
-            console.log("get y and m req")
             const token = localStorage.getItem('tokenAuth')
             const email = localStorage.getItem('email')
               //  console.log(token, email)
             const config = { headers : {"x-auth-token" : token}} 
-            console.log("sending req")    
             const response = await axios.post(`${BASE_URL}/request/get-all-requests`, 
             {email : email} ,
             config ) 
-            console.log(response) 
+            //console.log(response) 
             if( response.status === 200) { 
             
               const monthly = [...response.data.requestMonthly]
@@ -45,7 +43,6 @@ const RequestsData = () => {
                 const resolved = monthly.filter( req => req.request_status === REQUEST_STATUS.Resolved)
                 
                 const num = [ pending.length , assigned.length, resolved.length ] 
-                console.log(num, REQUEST_STATUS_VALUES)
                 setReqNumM(num)
                  setData({
                   labels: REQUEST_STATUS_VALUES,

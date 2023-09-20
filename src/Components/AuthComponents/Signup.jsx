@@ -52,7 +52,7 @@ const Signup = () => {
     }) 
 
   const handleAddUser = async(newUser) => {
-    console.log(newUser);
+    //console.log(newUser);
     const user = {
         username : newUser.username,
         email : newUser.email,

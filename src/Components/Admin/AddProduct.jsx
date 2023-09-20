@@ -56,17 +56,17 @@ const AddProduct = () => {
             },
             validationSchema: productSchema,
             onSubmit: (newProduct) => {
-                console.log(newProduct);
+                //console.log(newProduct);
                 handleAddProduct(newProduct)
             } 
         })
 
         const handleAddProduct = async(newProduct) => {
-              console.log(newProduct)
+              //console.log(newProduct)
               const token = localStorage.getItem('tokenAuth')
               const config = { headers : {"x-auth-token" : token}}
               const response = await axios.post(`${BASE_URL}/admin/add-product`,{product : newProduct}, config) 
-              console.log(response)
+              //console.log(response)
               if(response.status === 200)
                 navigate('/admin-dashboard')
         }

@@ -25,7 +25,7 @@ const RequestHistory = () => {
             setRequests( response.data.requestsList)
         }
         else if( response.status === 403) {
-          console.log("log in to continue")
+          //console.log("log in to continue")
           navigate('/')
       }
         }

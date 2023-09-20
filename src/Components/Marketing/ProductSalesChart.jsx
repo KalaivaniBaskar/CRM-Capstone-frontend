@@ -52,7 +52,7 @@ const ProductSalesChart = () => {
                 let APqty = 0;
                 let VCqty = 0;
                 let totalCount = 0;
-                all.map( (el) => {
+                all.forEach( (el) => {
                     totalCount += el.order_qty
                     const items = el.order_items 
                     items.map( i => {
@@ -71,7 +71,6 @@ const ProductSalesChart = () => {
                         if( String(i.product_ID).startsWith("VC") ) {
                             VCqty += i.qty
                         } 
-                        
                     })
                 }) 
               // console.log(KCqty, WMqty, VCqty, WPqty, APqty, totalCount) 

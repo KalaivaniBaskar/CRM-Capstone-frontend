@@ -41,7 +41,6 @@ const ProfilePic = () => {
       } 
 
       const handleUpload = async(event) => {
-        // console.log(fileSizeExceeded)
         if(!fileSizeExceeded){
             const imgForm = new FormData();
             imgForm.append("file", image)
@@ -106,7 +105,7 @@ const ProfilePic = () => {
 
          const deleteImage = async (public_id) => {
             try{
-            console.log("delete old image")
+            //console.log("delete old image")
             const token = localStorage.getItem('tokenAuth')
             const config = { headers : {"x-auth-token" : token}}
             const response = await axios.delete(`${BASE_URL}/user/delete-pic?public_id=${public_id}`, config)

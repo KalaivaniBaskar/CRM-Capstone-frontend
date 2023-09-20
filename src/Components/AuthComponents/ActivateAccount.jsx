@@ -13,10 +13,10 @@ const ActivateAccount = () => {
     const navigate = useNavigate();
      
     const activateUser = async(id,token) => {
-        console.log("Verifying activation");
+        //console.log("Verifying activation");
         try{
          const response = await axios.post(`${BASE_URL}/user/activate/${id}/${token}`)
-         console.log(response);
+         //console.log(response);
             if(response.status === 200){
                 setResp("Account Activated. Login to Continue")                
                 setTimeout( ()=> {

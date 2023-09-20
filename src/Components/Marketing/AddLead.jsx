@@ -44,9 +44,9 @@ const AddLead = () => {
             const config = { headers : {"x-auth-token" : token}} 
         const response = await axios.post(`${BASE_URL}/leads/add-leads`, 
         lead, config) 
-        console.log(response);
+        //console.log(response);
         if(response.status === 200){
-            console.log(response)
+            //console.log(response)
             handleClose();
             setNewLead({
                 lead_id: "",

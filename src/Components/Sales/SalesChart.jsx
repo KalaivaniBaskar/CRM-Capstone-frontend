@@ -30,7 +30,7 @@ const SalesChart = () => {
     
             const response = await axios.post(`${BASE_URL}/orders/monthly-orders`, 
             {pattern : pattern}, config) 
-            console.log(response) 
+            //console.log(response) 
             if( response.status === 200) {
               const t = [...response.data.ordersMonthly]
                  setRequests( [...response.data.ordersMonthly])
@@ -40,7 +40,7 @@ const SalesChart = () => {
                 const canreq = t.filter( od => od.order_status === ORDER_STATUS.CancelReq)
                 const cancel = t.filter( od => od.order_status === ORDER_STATUS.Cancelled)
                 const num = [ placed.length , shipped.length, deliv.length, canreq.length, cancel.length ] 
-                console.log(num, ORDER_STATUS_VALUES)
+                //console.log(num, ORDER_STATUS_VALUES)
                  setData({
                   labels: ORDER_STATUS_VALUES,
                   datasets : [{

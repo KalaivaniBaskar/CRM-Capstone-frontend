@@ -21,7 +21,7 @@ const EnggChart = () => {
             const config = { headers : {"x-auth-token" : token}}
             const response = await axios.post(`${BASE_URL}/request/get-requests`, 
             {request_engg : email}, config) 
-            console.log(response.data.requestsList) 
+            //console.log(response.data.requestsList) 
             if( response.status === 200) {
               const t = [...response.data.requestsList]
                  setRequests( [...response.data.requestsList])

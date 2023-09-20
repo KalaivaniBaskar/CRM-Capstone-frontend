@@ -26,7 +26,6 @@ const OrderHistory = () => {
           const ok = window.confirm(" Do you wish to cancel this order ?")
           if(ok) {
           try{
-          console.log("cancelling order", id)
             const token = localStorage.getItem('tokenAuth')
             //console.log(token)
             const config = { headers : {"x-auth-token" : token}}
@@ -80,7 +79,6 @@ const OrderHistory = () => {
             request_summary: [req]
         }
         try{
-            console.log("service request")
               const token = localStorage.getItem('tokenAuth')
               //console.log(token)
               const config = { headers : {"x-auth-token" : token}}
@@ -115,7 +113,7 @@ const OrderHistory = () => {
             setOrders( response.data.ordersList)
         }
         else if( response.status === 403) {
-            console.log("log in to continue")
+            //console.log("log in to continue")
             navigate('/')
         }
         }

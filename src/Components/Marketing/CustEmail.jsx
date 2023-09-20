@@ -20,7 +20,7 @@ const CustEmail = () => {
    
         emailjs.sendForm("service_j2lgrrd", "template_0xpjgw6", form.current , 'EO8c85wJ8CjYG5RtU')
         .then((result) => {
-            console.log(result.text);
+            //console.log(result.text);
             window.alert("Mail sent!")
             navigate('/all-leads')
         }, (error) => {

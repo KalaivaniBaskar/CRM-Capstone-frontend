@@ -20,21 +20,18 @@ const AssignedReq = () => {
 
 
     const closeRequest = async(req) => {
-        console.log("close req", req)
         const ok = window.confirm("Do you want to close request") 
         if(ok) {
             try{
-                console.log("add summary order")
                   const token = localStorage.getItem('tokenAuth')
                   const email = localStorage.getItem('email')
                   const role = localStorage.getItem('role')
-
                   //console.log(token)
                   const config = { headers : {"x-auth-token" : token}}
 
                   const response = await axios.post(`${BASE_URL}/request/update-status`, { requestID : req.requestID, request_status: REQUEST_STATUS.Resolved,
                    request_engg: email}, config)
-                  console.log(response) 
+                  //console.log(response) 
                   if(response.status === 200){
                       handleClose()
                       window.alert(" request closed")
@@ -62,7 +59,6 @@ const AssignedReq = () => {
         const ok = window.confirm("Do you want to add summary") 
         if(ok) {
             try{
-                console.log("add summary order")
                   const token = localStorage.getItem('tokenAuth')
                   const email = localStorage.getItem('email')
                   const role = localStorage.getItem('role')
@@ -94,7 +90,6 @@ const AssignedReq = () => {
 
     const getAssignedReq = async() => {
         try{
-            console.log("assigned method")
             const token = localStorage.getItem('tokenAuth')
             const email = localStorage.getItem('email')
               //  console.log(token, email)

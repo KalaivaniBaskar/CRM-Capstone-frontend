@@ -26,8 +26,8 @@ const cartSlice = createSlice({
                 state.cart_data.cart_Amount = state.cart_data.cart_Amount + price  
                 state.cart_data.cart_qty = state.cart_data.cart_qty + 1  
             }
-            else
-            console.log("item already added")
+            // else
+            // console.log("item already added")
         },
 
         removeItem : (state, action) => { 
@@ -41,8 +41,8 @@ const cartSlice = createSlice({
                 state.cart_data.cart_qty = state.cart_data.cart_qty - itemToRemove.qty
                 state.cart_data.cart_items = tempCart
         }
-        else
-        console.log("item not in cart")
+        // else
+        // console.log("item not in cart")
         },
 
         increaseQty : (state, action) => { 
@@ -65,8 +65,8 @@ const cartSlice = createSlice({
                 state.cart_data.cart_Amount = state.cart_data.cart_Amount + price  
                 state.cart_data.cart_qty = state.cart_data.cart_qty + 1  
               }
-            else
-            console.log("item not in cart")
+            // else
+            // console.log("item not in cart")
 
         }, 
         decreaseQty : (state, action) => { 
@@ -90,8 +90,8 @@ const cartSlice = createSlice({
                 state.cart_data.cart_qty = state.cart_data.cart_qty - 1  
 
               }
-            else
-            console.log("item not in cart")
+            // else
+            // console.log("item not in cart")
         }, 
         clearCart : (state, action) => {  
                 state.cart_data = {

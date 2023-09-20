@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {  Grid, Box, Typography, Stack, Paper } from '@mui/material';
+import {  Grid, Box, Typography,  Paper } from '@mui/material';
 import axios from 'axios';
 import { BASE_URL } from '../../Data/APIdata';
 import { ORDER_STATUS } from '../../Data/statusCode';
@@ -10,17 +10,15 @@ import BarChart from '../Charts/BarChart';
 
 const RevenueChart = () => {
 
-    const [requests, setRequests] = useState([]);
-    const [requestsY, setRequestsY] = useState([]); 
-    const [monthlyRev, setmonthlyRev] = useState([]);
-    const [yearlyRev, setyearlyRev] = useState([]); 
+    // const [requests, setRequests] = useState([]);
+    // const [requestsY, setRequestsY] = useState([]); 
+    // const [monthlyRev, setmonthlyRev] = useState([]);
+    // const [yearlyRev, setyearlyRev] = useState([]); 
     const [close, setClose] = useState(true)
     const ORDER_STATUS_VALUES = Object.values(ORDER_STATUS)
     const navigate = useNavigate()
+    
     // for chart
-    const [data, setData] = useState({})  
-    const [dataY, setDataY] = useState({})  
-    // for line chart
     const [lineDataMonthly, setlineDataMonthly] = useState({})  
     const [lineDataYearly, setlineDataYearly] = useState({})  
     const options = {
@@ -29,8 +27,8 @@ const RevenueChart = () => {
     const getRevenue = async() => {
         try{
             const token = localStorage.getItem('tokenAuth')
-            const email = localStorage.getItem('email')
-            const role = localStorage.getItem('role')
+            //const email = localStorage.getItem('email')
+            //const role = localStorage.getItem('role')
               //  console.log(token, email)
             const config = { headers : {"x-auth-token" : token}} 
             const d = new Date();

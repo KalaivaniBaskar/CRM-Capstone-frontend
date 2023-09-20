@@ -15,11 +15,9 @@ const PendingReq = () => {
 
 
     const attendRequest = async(req) => {
-        console.log("attending req", req)
         const ok = window.confirm("Do you want to attend request") 
         if(ok) {
             try{
-                console.log("attend  order")
                   const token = localStorage.getItem('tokenAuth')
                   const email = localStorage.getItem('email')
                   const role = localStorage.getItem('role')
@@ -29,7 +27,7 @@ const PendingReq = () => {
 
                   const response = await axios.post(`${BASE_URL}/request/update-status`, { requestID : req.requestID, request_status: REQUEST_STATUS.Assigned,
                    request_engg: email}, config)
-                  console.log(response) 
+                  //console.log(response) 
                   if(response.status === 200){
                       handleClose()
                       window.alert(" request assigned")
@@ -58,7 +56,7 @@ const PendingReq = () => {
                 //console.log(token, email)
             const config = { headers : {"x-auth-token" : token}}
             const response = await axios.post(`${BASE_URL}/request/get-requests`, {request_status : REQUEST_STATUS.Pending}, config) 
-            console.log(response) 
+            //console.log(response) 
             if( response.status === 200) {
                 setRequests( response.data.requestsList)
             }

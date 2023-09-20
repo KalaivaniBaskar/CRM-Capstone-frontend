@@ -23,7 +23,7 @@ const About = () => {
 
      emailjs.sendForm("service_j2lgrrd", "template_zxfciyi", form.current, 'EO8c85wJ8CjYG5RtU')
      .then((result) => {
-         console.log(result.text);
+         //console.log(result.text);
          window.alert("Thank you for contacting us!")
          navigate('/')
      }, (error) => {

@@ -23,16 +23,14 @@ const PendingOrders = () => {
     const handleShip = async (e, od) => {
       e.preventDefault();
       setOpen(true)
-      console.log(od)             
       const ok = window.confirm(" Do you wish to update this order ?")
       if(ok) {
       try{
-      console.log("cancelling order", )
         const token = localStorage.getItem('tokenAuth')
         //console.log(token)
         const config = { headers : {"x-auth-token" : token}}
         const response = await axios.post(`${BASE_URL}/orders/update-order`, { orderID : od.orderID, order_status : status}, config)
-        console.log(response) 
+        //console.log(response) 
         if(response.status === 200){
             handleClose()
             window.alert("Order status Updated")
@@ -64,7 +62,7 @@ const PendingOrders = () => {
         const config = { headers : {"x-auth-token" : token}}
         const response = await axios.post(`${BASE_URL}/orders/get-orders`, 
         {order_status : { $in : [ORDER_STATUS.Placed, ORDER_STATUS.Shipped, ORDER_STATUS.CancelReq]}}, config) 
-        console.log(response) 
+        //console.log(response) 
         if( response.status === 200) {
             setPOD( response.data.ordersList)
         }

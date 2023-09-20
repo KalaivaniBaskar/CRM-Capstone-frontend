@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Grid, Stack, Typography,  Box , Divider, Paper, Select, MenuItem, InputLabel } from '@mui/material';
+import {  Grid, Stack, Typography,  Box , Divider, Paper, Select, MenuItem, InputLabel } from '@mui/material';
 import axios from 'axios';
 import { BASE_URL } from '../../Data/APIdata';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { ORDER_STATUS } from '../../Data/statusCode';
 const MonthlyOrders = () => {
     const navigate = useNavigate(); 
     const [ status, setStatus] = useState(ORDER_STATUS.Shipped)
-    const [refresh, setRefresh] = useState(false)
+    //const [refresh, setRefresh] = useState(false)
     const [monthlyOD, setMOD] = useState([]);
     const ORDER_STATUS_VALUES = Object.values(ORDER_STATUS)
 
@@ -21,13 +21,12 @@ const MonthlyOrders = () => {
         const d = new Date();
         let year = d.getFullYear()
         let month = d.getMonth()+1
-        let dt = d.getDate()
         const pattern  = "^" +  String(year) + 
                         ( month<10 ? '0'+String(month) : String(month)) + ".*"
 
         const response = await axios.post(`${BASE_URL}/orders/monthly-orders`, 
         {pattern : pattern}, config) 
-        console.log(response) 
+        //console.log(response) 
         if( response.status === 200) {
             setMOD( response.data.ordersMonthly)
         }
